@@ -1,0 +1,82 @@
+﻿@model HealthITUnivApp.College
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>College</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeAbbrevation)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeAbbrevation)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeURL)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeURL)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeAddress)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeAddress)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegePhoneNo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegePhoneNo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeHead)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeHead)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UniversityID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UniversityID)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CollegeID }) |
+       @Html.ActionLink("Back to List", "../Home/Admin")
+    </p>
+</body>
+</html>

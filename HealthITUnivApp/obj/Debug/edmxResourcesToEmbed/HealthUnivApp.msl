@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HealthModelStoreContainer" CdmEntityContainer="HealthEntities">
+    <EntitySetMapping Name="Colleges">
+      <EntityTypeMapping TypeName="HealthModel.College">
+        <MappingFragment StoreEntitySet="College">
+          <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+          <ScalarProperty Name="CollegeID" ColumnName="CollegeID" />
+          <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
+          <ScalarProperty Name="CollegeAbbrevation" ColumnName="CollegeAbbrevation" />
+          <ScalarProperty Name="CollegeURL" ColumnName="CollegeURL" />
+          <ScalarProperty Name="CollegeAddress" ColumnName="CollegeAddress" />
+          <ScalarProperty Name="CollegePhoneNo" ColumnName="CollegePhoneNo" />
+          <ScalarProperty Name="CollegeHead" ColumnName="CollegeHead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="HealthModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="HealthModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="DepartmentAbbreviation" ColumnName="DepartmentAbbreviation" />
+          <ScalarProperty Name="DepartmentURL" ColumnName="DepartmentURL" />
+          <ScalarProperty Name="DepartmentAddress" ColumnName="DepartmentAddress" />
+          <ScalarProperty Name="DepartmentPhoneNo" ColumnName="DepartmentPhoneNo" />
+          <ScalarProperty Name="DepartmentHead" ColumnName="DepartmentHead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EducationSystems">
+      <EntityTypeMapping TypeName="HealthModel.EducationSystem">
+        <MappingFragment StoreEntitySet="EducationSystem">
+          <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+          <ScalarProperty Name="SystemAbbreviation" ColumnName="SystemAbbreviation" />
+          <ScalarProperty Name="SystemURL" ColumnName="SystemURL" />
+          <ScalarProperty Name="SystemAddress" ColumnName="SystemAddress" />
+          <ScalarProperty Name="SystemPhoneNo" ColumnName="SystemPhoneNo" />
+          <ScalarProperty Name="SystemHeadPerson" ColumnName="SystemHeadPerson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="HealthModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonAddress" ColumnName="PersonAddress" />
+          <ScalarProperty Name="PersonTitle" ColumnName="PersonTitle" />
+          <ScalarProperty Name="PersonRole" ColumnName="PersonRole" />
+          <ScalarProperty Name="PersonType" ColumnName="PersonType" />
+          <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+          <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="PersonPhoneNo" ColumnName="PersonPhoneNo" />
+          <ScalarProperty Name="PersonEmailID" ColumnName="PersonEmailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programs">
+      <EntityTypeMapping TypeName="HealthModel.Program">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ProgramType" ColumnName="ProgramType" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="ProgramLeadDepartment" ColumnName="ProgramLeadDepartment" />
+          <ScalarProperty Name="ProgramAbbrevation" ColumnName="ProgramAbbrevation" />
+          <ScalarProperty Name="ProgramURL" ColumnName="ProgramURL" />
+          <ScalarProperty Name="ProgramHead" ColumnName="ProgramHead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Universities">
+      <EntityTypeMapping TypeName="HealthModel.University">
+        <MappingFragment StoreEntitySet="University">
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+          <ScalarProperty Name="UniversityID" ColumnName="UniversityID" />
+          <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+          <ScalarProperty Name="UniversityAbbreviation" ColumnName="UniversityAbbreviation" />
+          <ScalarProperty Name="UniversityURL" ColumnName="UniversityURL" />
+          <ScalarProperty Name="UniversityAddress" ColumnName="UniversityAddress" />
+          <ScalarProperty Name="UniversityPhoneNo" ColumnName="UniversityPhoneNo" />
+          <ScalarProperty Name="UniversityHead" ColumnName="UniversityHead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

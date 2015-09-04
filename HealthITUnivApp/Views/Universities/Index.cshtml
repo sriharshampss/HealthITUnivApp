@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HealthITUnivApp.University>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Universities</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityAbbreviation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityPhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityHead)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SystemName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityAbbreviation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityPhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityHead)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SystemName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UniversityID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UniversityID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UniversityID })
+        </td>
+    </tr>
+}
+
+</table>

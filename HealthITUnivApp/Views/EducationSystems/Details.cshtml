@@ -1,0 +1,67 @@
+﻿@model HealthITUnivApp.EducationSystem
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EducationSystem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemAbbreviation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemAbbreviation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemPhoneNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemPhoneNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemHeadPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemHeadPerson)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SystemID }) |
+    @Html.ActionLink("Back to List", "../Home/Admin")
+</p>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HealthModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="College">
+    <Key>
+      <PropertyRef Name="CollegeID" />
+    </Key>
+    <Property Name="CollegeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CollegeName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CollegeAbbrevation" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CollegeURL" Type="nvarchar(max)" />
+    <Property Name="CollegeAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="CollegePhoneNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="CollegeHead" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UniversityName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseNumber" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CourseType" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ProgramName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="URL" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepartmentAbbreviation" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DepartmentURL" Type="nvarchar(max)" />
+    <Property Name="DepartmentAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="DepartmentPhoneNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="DepartmentHead" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CollegeName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="EducationSystem">
+    <Key>
+      <PropertyRef Name="SystemID" />
+    </Key>
+    <Property Name="SystemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SystemName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SystemAbbreviation" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SystemURL" Type="nvarchar(max)" />
+    <Property Name="SystemAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="SystemPhoneNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="SystemHeadPerson" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PersonAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="PersonTitle" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PersonRole" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PersonType" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UniversityName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CollegeName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PersonPhoneNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="PersonEmailID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="ProgramID" />
+    </Key>
+    <Property Name="ProgramID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProgramType" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProgramLeadDepartment" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProgramAbbrevation" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ProgramURL" Type="nvarchar(max)" />
+    <Property Name="ProgramHead" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="University">
+    <Key>
+      <PropertyRef Name="UniversityID" />
+    </Key>
+    <Property Name="UniversityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UniversityName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UniversityAbbreviation" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UniversityURL" Type="nvarchar(max)" />
+    <Property Name="UniversityAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="UniversityPhoneNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="UniversityHead" Type="nvarchar" MaxLength="100" />
+    <Property Name="SystemName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="HealthModelStoreContainer">
+    <EntitySet Name="College" EntityType="Self.College" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EducationSystem" EntityType="Self.EducationSystem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

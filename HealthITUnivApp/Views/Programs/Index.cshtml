@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HealthITUnivApp.Program>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Programs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramLeadDepartment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramAbbrevation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramHead)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramLeadDepartment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramAbbrevation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramHead)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProgramID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ProgramID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ProgramID })
+            </td>
+        </tr>
+    }
+    
+    </table>
