@@ -12,14 +12,11 @@ namespace HealthITUnivApp
     using System;
     using System.Collections.Generic;
     
-    public partial class Course
+    public partial class Address
     {
-        public int CourseID { get; set; }
-        public string CourseNumber { get; set; }
-        public string CourseName { get; set; }
-        public string CourseType { get; set; }
-        public string ProgramName { get; set; }
-        public string DepartmentName { get; set; }
-        public string URL { get; set; }
+        public int AddressId { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
     }
 }

@@ -11,14 +11,23 @@ namespace HealthITUnivApp
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Department
     {
         public int DepartmentID { get; set; }
+
+        [Required(ErrorMessage = "Please enter Department Name")]
         public string DepartmentName { get; set; }
+
+        [Required(ErrorMessage = "Please enter Department Abbreviation")]
         public string DepartmentAbbreviation { get; set; }
         public string DepartmentURL { get; set; }
-        public string DepartmentAddress { get; set; }
+        public string DepartmentStreet { get; set; }
+        public string DepartmentCity { get; set; }
+        public string DepartmentState { get; set; }
+        public string DepartmentCountry { get; set; }
+        public string DepartmentZipCode { get; set; }
         public string DepartmentPhoneNo { get; set; }
         public string DepartmentHead { get; set; }
         public string CollegeName { get; set; }

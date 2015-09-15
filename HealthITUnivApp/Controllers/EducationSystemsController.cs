@@ -12,12 +12,12 @@ namespace HealthITUnivApp.Controllers
 {
     public class EducationSystemsController : Controller
     {
-        private HealthEntities db = new HealthEntities();
+        private HISYS001Entities db = new HISYS001Entities();
 
         // GET: EducationSystems
-        public PartialViewResult Index()
+        public ActionResult Index()
         {
-            return PartialView(db.EducationSystems.ToList());
+            return View(db.EducationSystems.ToList());
         }
 
         // GET: EducationSystems/Details/5
@@ -46,7 +46,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SystemID,SystemName,SystemAbbreviation,SystemURL,SystemAddress,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
+        public ActionResult Create([Bind(Include = "SystemID,SystemName,SystemAbbreviation,SystemURL,SystemStreet,SystemCity,SystemState,SystemCountry,SystemZipCode,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SystemID,SystemName,SystemAbbreviation,SystemURL,SystemAddress,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
+        public ActionResult Edit([Bind(Include = "SystemID,SystemName,SystemAbbreviation,SystemURL,SystemStreet,SystemCity,SystemState,SystemCountry,SystemZipCode,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
         {
             if (ModelState.IsValid)
             {

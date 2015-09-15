@@ -1,0 +1,101 @@
+﻿@model IEnumerable<HealthITUnivApp.Department>
+
+@{
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentAbbreviation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentPhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentHead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CollegeName)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentAbbreviation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentStreet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentPhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentHead)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollegeName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.DepartmentID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.DepartmentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.DepartmentID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

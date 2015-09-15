@@ -1,0 +1,114 @@
+﻿@model HealthITUnivApp.Department
+
+@{
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Department</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentAbbreviation)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentAbbreviation)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentURL)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentURL)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentStreet)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentStreet)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentCity)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentCity)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentState)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentState)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentCountry)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentCountry)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentZipCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentZipCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentPhoneNo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentPhoneNo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentHead)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentHead)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeName)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.DepartmentID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

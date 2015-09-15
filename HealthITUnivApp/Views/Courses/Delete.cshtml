@@ -1,7 +1,7 @@
 ﻿@model HealthITUnivApp.Course
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
 }
 
 <!DOCTYPE html>
@@ -50,19 +50,19 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.URL)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.URL)
-            </dd>
-    
-            <dt>
                 @Html.DisplayNameFor(model => model.DepartmentName)
             </dt>
     
             <dd>
                 @Html.DisplayFor(model => model.DepartmentName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.URL)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.URL)
             </dd>
     
         </dl>
@@ -72,7 +72,7 @@
     
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "../Home/Admin")
+                @Html.ActionLink("Back to List", "Index")
             </div>
         }
     </div>

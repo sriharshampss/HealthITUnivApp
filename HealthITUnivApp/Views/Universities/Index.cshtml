@@ -1,70 +1,101 @@
 ﻿@model IEnumerable<HealthITUnivApp.University>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";;
 }
 
-<h2>Universities</h2>
+<!DOCTYPE html>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UniversityName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UniversityAbbreviation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UniversityURL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UniversityAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UniversityPhoneNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UniversityHead)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SystemName)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UniversityName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UniversityAbbreviation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UniversityURL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UniversityAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UniversityPhoneNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UniversityHead)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SystemName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UniversityID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UniversityID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UniversityID })
-        </td>
-    </tr>
-}
-
-</table>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityAbbreviation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityPhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityHead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemName)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityAbbreviation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityStreet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityPhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityHead)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.UniversityID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.UniversityID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.UniversityID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

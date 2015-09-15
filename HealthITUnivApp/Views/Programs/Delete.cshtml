@@ -1,7 +1,7 @@
 ﻿@model HealthITUnivApp.Program
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";;
 }
 
 <!DOCTYPE html>
@@ -34,22 +34,6 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.DepartmentName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DepartmentName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.ProgramLeadDepartment)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.ProgramLeadDepartment)
-            </dd>
-    
-            <dt>
                 @Html.DisplayNameFor(model => model.ProgramAbbrevation)
             </dt>
     
@@ -66,11 +50,59 @@
             </dd>
     
             <dt>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ProgramLeadDepartment)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProgramLeadDepartment)
+            </dd>
+    
+            <dt>
                 @Html.DisplayNameFor(model => model.ProgramHead)
             </dt>
     
             <dd>
                 @Html.DisplayFor(model => model.ProgramHead)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Accredited)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Accredited)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Accredited_Type)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Accredited_Type)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Accredited_StartDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Accredited_StartDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Accredited_EndDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Accredited_EndDate)
             </dd>
     
         </dl>
@@ -80,7 +112,7 @@
     
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
-               @Html.ActionLink("Back to List", "../Home/Admin")
+                @Html.ActionLink("Back to List", "Index")
             </div>
         }
     </div>

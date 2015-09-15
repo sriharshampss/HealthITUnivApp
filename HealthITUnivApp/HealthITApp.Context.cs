@@ -13,10 +13,10 @@ namespace HealthITUnivApp
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HealthEntities : DbContext
+    public partial class HISYS001Entities : DbContext
     {
-        public HealthEntities()
-            : base("name=HealthEntities")
+        public HISYS001Entities()
+            : base("name=HISYS001Entities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace HealthITUnivApp
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<College> Colleges { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Department> Departments { get; set; }

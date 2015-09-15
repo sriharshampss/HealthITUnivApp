@@ -10,7 +10,7 @@
     <Property Name="CollegeURL" Type="nvarchar(max)" />
     <Property Name="CollegeAddress" Type="nvarchar" MaxLength="250" />
     <Property Name="CollegePhoneNo" Type="nvarchar" MaxLength="20" />
-    <Property Name="CollegeHead" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CollegeHead" Type="nvarchar" MaxLength="100" />
     <Property Name="UniversityName" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Course">
@@ -74,10 +74,10 @@
     <Property Name="ProgramName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="ProgramType" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="ProgramLeadDepartment" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="ProgramAbbrevation" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ProgramLeadDepartment" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProgramAbbrevation" Type="varchar" MaxLength="10" />
     <Property Name="ProgramURL" Type="nvarchar(max)" />
-    <Property Name="ProgramHead" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProgramHead" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="University">
     <Key>

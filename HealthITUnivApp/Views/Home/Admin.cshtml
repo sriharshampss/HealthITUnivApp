@@ -8,11 +8,12 @@
     <div>
         <nav>
             <ul class="nav nav-tabs">
-                <li><a href="#" ng-click="viewControl=true;viewControl1=false;viewControl2=false;viewControl3=false;viewControl4=false">University System</a></li>
-                <li><a href="#" ng-click="viewControl=false;viewControl1=true;viewControl2=false;viewControl3=false;viewControl4=false">University</a></li>
-                <li><a href="#" ng-click="viewControl=false;viewControl1=false;viewControl2=true;viewControl3=false;viewControl4=false">College</a></li>
-                <li><a href="#" ng-click="viewControl=false;viewControl1=false;viewControl2=false;viewControl3=true;viewControl4=false">Program</a></li>
-                <li><a href="#" ng-click="viewControl=false;viewControl1=false;viewControl2=false;viewControl3=false;viewControl4=true">Courses</a></li>
+                <li><a href="#" ng-click="viewControl=true;viewControl1=false;viewControl2=false;viewControl3=false;viewControl4=false;viewControl5=false">University System</a></li>
+                <li><a href="#" ng-click="viewControl=false;viewControl1=true;viewControl2=false;viewControl3=false;viewControl4=false;viewControl5=false">University</a></li>
+                <li><a href="#" ng-click="viewControl=false;viewControl1=false;viewControl2=true;viewControl3=false;viewControl4=false;viewControl5=false">College</a></li>
+                <li><a href="#" ng-click="viewControl=false;viewControl1=false;viewControl2=false;viewControl3=true;viewControl4=false;viewControl5=false">Departments</a></li>
+                <li><a href="#" ng-click="viewControl=false;viewControl1=false;viewControl2=false;viewControl3=false;viewControl4=true;viewControl5=false">Program</a></li>
+                <li><a href="#" ng-click="viewControl=false;viewControl1=false;viewControl2=false;viewControl3=false;viewControl4=false;viewControl5=true">Courses</a></li>
             </ul>
         </nav>
         <br />
@@ -25,11 +26,14 @@
         </div>  
         <div ng-show="viewControl2==true">
             @{Html.RenderAction("Index", "Colleges");}
-        </div>  
+        </div> 
         <div ng-show="viewControl3==true">
+            @{Html.RenderAction("Index", "Departments");}
+        </div>  
+        <div ng-show="viewControl4==true">
             @{Html.RenderAction("Index", "Programs");}
         </div>
-        <div ng-show="viewControl4==true">
+        <div ng-show="viewControl5==true">
             @{Html.RenderAction("Index", "Courses");}
         </div>       
     </div>

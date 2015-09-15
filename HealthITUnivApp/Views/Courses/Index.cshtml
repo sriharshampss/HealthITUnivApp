@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<HealthITUnivApp.Course>
 
 @{
-    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";;
 }
 
 <!DOCTYPE html>
@@ -30,10 +30,10 @@
                 @Html.DisplayNameFor(model => model.ProgramName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.URL)
+                @Html.DisplayNameFor(model => model.DepartmentName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DepartmentName)
+                @Html.DisplayNameFor(model => model.URL)
             </th>
             <th></th>
         </tr>
@@ -53,10 +53,10 @@
                 @Html.DisplayFor(modelItem => item.ProgramName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.URL)
+                @Html.DisplayFor(modelItem => item.DepartmentName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DepartmentName)
+                @Html.DisplayFor(modelItem => item.URL)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.CourseID }) |

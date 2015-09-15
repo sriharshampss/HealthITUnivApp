@@ -12,7 +12,7 @@ namespace HealthITUnivApp.Controllers
 {
     public class UniversitiesController : Controller
     {
-        private HealthEntities db = new HealthEntities();
+        private HISYS001Entities db = new HISYS001Entities();
 
         // GET: Universities
         public ActionResult Index()
@@ -38,6 +38,19 @@ namespace HealthITUnivApp.Controllers
         // GET: Universities/Create
         public ActionResult Create()
         {
+            List<EducationSystem> systems = db.EducationSystems.ToList<EducationSystem>();            
+            List<SelectListItem> listItems = new List<SelectListItem>();
+                     
+            foreach(var x in systems)
+            {
+                listItems.Add(new SelectListItem() { Text=x.SystemName, Value=x.SystemName});
+            }
+            if (listItems.Count > 0)
+            {
+                ViewData["Systems"] = listItems;
+                // ViewBag.Systems = systemNames;
+            }
+
             return View();
         }
 
@@ -46,13 +59,25 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UniversityID,UniversityName,UniversityAbbreviation,UniversityURL,UniversityAddress,UniversityPhoneNo,UniversityHead,SystemID")] University university)
+        public ActionResult Create([Bind(Include = "UniversityID,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
         {
             if (ModelState.IsValid)
             {
                 db.Universities.Add(university);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            List<EducationSystem> systems = db.EducationSystems.ToList<EducationSystem>();
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var x in systems)
+            {
+                listItems.Add(new SelectListItem() { Text = x.SystemName, Value = x.SystemName });
+            }
+            if (listItems.Count > 0)
+            {
+                ViewData["Systems"] = listItems;
+                // ViewBag.Systems = systemNames;
             }
 
             return View(university);
@@ -70,6 +95,18 @@ namespace HealthITUnivApp.Controllers
             {
                 return HttpNotFound();
             }
+            List<EducationSystem> systems = db.EducationSystems.ToList<EducationSystem>();
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var x in systems)
+            {
+                listItems.Add(new SelectListItem() { Text = x.SystemName, Value = x.SystemName });
+            }
+            if (listItems.Count > 0)
+            {
+                ViewData["Systems"] = listItems;
+                // ViewBag.Systems = systemNames;
+            }
             return View(university);
         }
 
@@ -78,13 +115,25 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UniversityID,UniversityName,UniversityAbbreviation,UniversityURL,UniversityAddress,UniversityPhoneNo,UniversityHead,SystemID")] University university)
+        public ActionResult Edit([Bind(Include = "UniversityID,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(university).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            List<EducationSystem> systems = db.EducationSystems.ToList<EducationSystem>();
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var x in systems)
+            {
+                listItems.Add(new SelectListItem() { Text = x.SystemName, Value = x.SystemName });
+            }
+            if (listItems.Count > 0)
+            {
+                ViewData["Systems"] = listItems;
+                // ViewBag.Systems = systemNames;
             }
             return View(university);
         }

@@ -173,6 +173,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs">
+      <DependentUpon>HealthITApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -180,56 +183,57 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="College.cs">
-      <DependentUpon>HealthUnivApp.tt</DependentUpon>
+      <DependentUpon>HealthITApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CollegesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EducationSystemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProgramsController.cs" />
     <Compile Include="Controllers\UniversitiesController.cs" />
     <Compile Include="Course.cs">
-      <DependentUpon>HealthUnivApp.tt</DependentUpon>
+      <DependentUpon>HealthITApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Department.cs">
-      <DependentUpon>HealthUnivApp.tt</DependentUpon>
+      <DependentUpon>HealthITApp.tt</DependentUpon>
     </Compile>
     <Compile Include="EducationSystem.cs">
-      <DependentUpon>HealthUnivApp.tt</DependentUpon>
+      <DependentUpon>HealthITApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HealthUnivApp.Context.cs">
+    <Compile Include="HealthITApp.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HealthUnivApp.Context.tt</DependentUpon>
+      <DependentUpon>HealthITApp.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="HealthUnivApp.cs">
+    <Compile Include="HealthITApp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HealthUnivApp.tt</DependentUpon>
+      <DependentUpon>HealthITApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="HealthUnivApp.Designer.cs">
+    <Compile Include="HealthITApp.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HealthUnivApp.edmx</DependentUpon>
+      <DependentUpon>HealthITApp.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Person.cs">
-      <DependentUpon>HealthUnivApp.tt</DependentUpon>
+      <DependentUpon>HealthITApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs">
-      <DependentUpon>HealthUnivApp.tt</DependentUpon>
+      <DependentUpon>HealthITApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="University.cs">
-      <DependentUpon>HealthUnivApp.tt</DependentUpon>
+      <DependentUpon>HealthITApp.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -239,25 +243,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="HealthUnivApp.Context.tt">
+    <Content Include="HealthITApp.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HealthUnivApp.edmx</DependentUpon>
-      <LastGenOutput>HealthUnivApp.Context.cs</LastGenOutput>
+      <DependentUpon>HealthITApp.edmx</DependentUpon>
+      <LastGenOutput>HealthITApp.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="HealthUnivApp.tt">
+    <Content Include="HealthITApp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HealthUnivApp.edmx</DependentUpon>
-      <LastGenOutput>HealthUnivApp.cs</LastGenOutput>
+      <DependentUpon>HealthITApp.edmx</DependentUpon>
+      <LastGenOutput>HealthITApp.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="HealthUnivApp.edmx">
+    <EntityDeploy Include="HealthITApp.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HealthUnivApp.Designer.cs</LastGenOutput>
+      <LastGenOutput>HealthITApp.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="HealthUnivApp.edmx.diagram">
-      <DependentUpon>HealthUnivApp.edmx</DependentUpon>
+    <Content Include="HealthITApp.edmx.diagram">
+      <DependentUpon>HealthITApp.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\HealthIT.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -284,7 +289,46 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Shared\_LayoutIndex.cshtml" />
+    <Content Include="Views\EducationSystems\Create.cshtml" />
+    <Content Include="Views\EducationSystems\Delete.cshtml" />
+    <Content Include="Views\EducationSystems\Details.cshtml" />
+    <Content Include="Views\EducationSystems\Edit.cshtml" />
+    <Content Include="Views\EducationSystems\Index.cshtml" />
+    <Content Include="Views\Universities\Create.cshtml" />
+    <Content Include="Views\Universities\Delete.cshtml" />
+    <Content Include="Views\Universities\Details.cshtml" />
+    <Content Include="Views\Universities\Edit.cshtml" />
+    <Content Include="Views\Universities\Index.cshtml" />
+    <Content Include="Views\Colleges\Create.cshtml" />
+    <Content Include="Views\Colleges\Delete.cshtml" />
+    <Content Include="Views\Colleges\Details.cshtml" />
+    <Content Include="Views\Colleges\Edit.cshtml" />
+    <Content Include="Views\Colleges\Index.cshtml" />
+    <Content Include="Views\Departments\Create.cshtml" />
+    <Content Include="Views\Departments\Delete.cshtml" />
+    <Content Include="Views\Departments\Details.cshtml" />
+    <Content Include="Views\Departments\Edit.cshtml" />
+    <Content Include="Views\Departments\Index.cshtml" />
+    <Content Include="Views\Programs\Create.cshtml" />
+    <Content Include="Views\Programs\Delete.cshtml" />
+    <Content Include="Views\Programs\Details.cshtml" />
+    <Content Include="Views\Programs\Edit.cshtml" />
+    <Content Include="Views\Programs\Index.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Delete.cshtml" />
+    <Content Include="Views\Courses\Details.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -296,41 +340,7 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\EducationSystems\Create.cshtml" />
-    <Content Include="Views\EducationSystems\Delete.cshtml" />
-    <Content Include="Views\EducationSystems\Details.cshtml" />
-    <Content Include="Views\EducationSystems\Edit.cshtml" />
-    <Content Include="Views\EducationSystems\Index.cshtml" />
-    <Content Include="Views\Home\Admin.cshtml" />
-    <Content Include="Views\Universities\Create.cshtml" />
-    <Content Include="Views\Universities\Delete.cshtml" />
-    <Content Include="Views\Universities\Details.cshtml" />
-    <Content Include="Views\Universities\Edit.cshtml" />
-    <Content Include="Views\Universities\Index.cshtml" />
-    <Content Include="Views\Colleges\Create.cshtml" />
-    <Content Include="Views\Colleges\Delete.cshtml" />
-    <Content Include="Views\Colleges\Details.cshtml" />
-    <Content Include="Views\Colleges\Edit.cshtml" />
-    <Content Include="Views\Colleges\Index.cshtml" />
-    <Content Include="Views\Programs\Create.cshtml" />
-    <Content Include="Views\Programs\Delete.cshtml" />
-    <Content Include="Views\Programs\Details.cshtml" />
-    <Content Include="Views\Programs\Edit.cshtml" />
-    <Content Include="Views\Programs\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutIndex.cshtml" />
-    <Content Include="Views\Courses\Create.cshtml" />
-    <Content Include="Views\Courses\Delete.cshtml" />
-    <Content Include="Views\Courses\Details.cshtml" />
-    <Content Include="Views\Courses\Edit.cshtml" />
-    <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

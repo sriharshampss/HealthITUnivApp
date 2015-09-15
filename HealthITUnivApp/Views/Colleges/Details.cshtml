@@ -1,7 +1,7 @@
 ﻿@model HealthITUnivApp.College
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
 }
 
 <!DOCTYPE html>
@@ -41,11 +41,43 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.CollegeAddress)
+                @Html.DisplayNameFor(model => model.CollegeStreet)
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.CollegeAddress)
+                @Html.DisplayFor(model => model.CollegeStreet)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeCity)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeCity)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeState)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeState)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeCountry)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeCountry)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CollegeZipCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CollegeZipCode)
             </dd>
     
             <dt>
@@ -65,18 +97,18 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.UniversityID)
+                @Html.DisplayNameFor(model => model.UniversityName)
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.UniversityID)
+                @Html.DisplayFor(model => model.UniversityName)
             </dd>
     
         </dl>
     </div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.CollegeID }) |
-       @Html.ActionLink("Back to List", "../Home/Admin")
+        @Html.ActionLink("Back to List", "Index")
     </p>
 </body>
 </html>

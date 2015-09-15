@@ -1,15 +1,20 @@
 ﻿@model IEnumerable<HealthITUnivApp.Program>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";;
 }
 
-<h2>Programs</h2>
+<!DOCTYPE html>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
     <table class="table">
         <tr>
             <th>
@@ -19,19 +24,31 @@
                 @Html.DisplayNameFor(model => model.ProgramType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DepartmentName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProgramLeadDepartment)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.ProgramAbbrevation)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProgramURL)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramLeadDepartment)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ProgramHead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accredited)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accredited_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accredited_StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accredited_EndDate)
             </th>
             <th></th>
         </tr>
@@ -45,19 +62,31 @@
                 @Html.DisplayFor(modelItem => item.ProgramType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DepartmentName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProgramLeadDepartment)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.ProgramAbbrevation)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProgramURL)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramLeadDepartment)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ProgramHead)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accredited)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accredited_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accredited_StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accredited_EndDate)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.ProgramID }) |
@@ -68,3 +97,5 @@
     }
     
     </table>
+</body>
+</html>

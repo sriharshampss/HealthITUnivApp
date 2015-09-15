@@ -10,7 +10,7 @@
     <Property Name="CollegeURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CollegeAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="CollegePhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="CollegeHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CollegeHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UniversityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Course">
@@ -74,10 +74,10 @@
     <Property Name="ProgramName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ProgramType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ProgramLeadDepartment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ProgramAbbrevation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProgramLeadDepartment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ProgramAbbrevation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="ProgramURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ProgramHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProgramHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="University">
     <Key>

@@ -1,67 +1,106 @@
 ﻿@model HealthITUnivApp.EducationSystem
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";;
 }
 
-<h2>Details</h2>
+<!DOCTYPE html>
 
-<div>
-    <h4>EducationSystem</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SystemName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SystemName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SystemAbbreviation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SystemAbbreviation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SystemURL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SystemURL)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SystemAddress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SystemAddress)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SystemPhoneNo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SystemPhoneNo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SystemHeadPerson)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SystemHeadPerson)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SystemID }) |
-    @Html.ActionLink("Back to List", "../Home/Admin")
-</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>EducationSystem</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemAbbreviation)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemAbbreviation)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemURL)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemURL)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemStreet)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemStreet)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemCity)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemCity)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemState)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemState)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemCountry)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemCountry)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemZipCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemZipCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemPhoneNo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemPhoneNo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemHeadPerson)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemHeadPerson)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.SystemID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
