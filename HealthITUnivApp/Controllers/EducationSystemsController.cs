@@ -12,7 +12,7 @@ namespace HealthITUnivApp.Controllers
 {
     public class EducationSystemsController : Controller
     {
-        private HISYS001Entities db = new HISYS001Entities();
+        private HISYS001Entities11 db = new HISYS001Entities11();
 
         // GET: EducationSystems
         public ActionResult Index()
@@ -50,11 +50,20 @@ namespace HealthITUnivApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.EducationSystems.Add(educationSystem);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                var count = db.EducationSystems.Select(a => a.SystemName.ToLower().Equals(educationSystem.SystemName.ToLower())).Count();
 
+                if(count == 0)
+                {
+                    db.EducationSystems.Add(educationSystem);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("SystemName", "System Name already exists in DB.");                    
+                    return View(educationSystem);
+                }     
+            }
             return View(educationSystem);
         }
 
@@ -63,12 +72,12 @@ namespace HealthITUnivApp.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+               return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             EducationSystem educationSystem = db.EducationSystems.Find(id);
             if (educationSystem == null)
             {
-                return HttpNotFound();
+               return HttpNotFound();
             }
             return View(educationSystem);
         }

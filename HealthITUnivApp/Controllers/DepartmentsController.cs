@@ -12,7 +12,7 @@ namespace HealthITUnivApp.Controllers
 {
     public class DepartmentsController : Controller
     {
-        private HISYS001Entities db = new HISYS001Entities();
+        private HISYS001Entities11 db = new HISYS001Entities11();
 
         // GET: Departments
         public ActionResult Index()

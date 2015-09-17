@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HealthITUnivApp</RootNamespace>
     <AssemblyName>HealthITUnivApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +52,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -58,11 +60,8 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -104,6 +103,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -174,7 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs">
-      <DependentUpon>HealthITApp.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -183,7 +183,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="College.cs">
-      <DependentUpon>HealthITApp.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CollegesController.cs" />
@@ -195,45 +195,61 @@
     <Compile Include="Controllers\ProgramsController.cs" />
     <Compile Include="Controllers\UniversitiesController.cs" />
     <Compile Include="Course.cs">
-      <DependentUpon>HealthITApp.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Course_Structure.cs">
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Address.cs" />
+    <Compile Include="DataModels\College.cs" />
+    <Compile Include="DataModels\Course.cs" />
+    <Compile Include="DataModels\Course_Structure.cs" />
+    <Compile Include="DataModels\Department.cs" />
+    <Compile Include="DataModels\EducationSystem.cs" />
+    <Compile Include="DataModels\Person.cs" />
+    <Compile Include="DataModels\Program.cs" />
+    <Compile Include="DataModels\Prog_Dept.cs" />
+    <Compile Include="DataModels\University.cs" />
     <Compile Include="Department.cs">
-      <DependentUpon>HealthITApp.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
     <Compile Include="EducationSystem.cs">
-      <DependentUpon>HealthITApp.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HealthITApp.Context.cs">
+    <Compile Include="HealthITUnivDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HealthITApp.Context.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="HealthITApp.cs">
+    <Compile Include="HealthITUnivDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HealthITApp.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="HealthITApp.Designer.cs">
+    <Compile Include="HealthITUnivDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HealthITApp.edmx</DependentUpon>
+      <DependentUpon>HealthITUnivDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Person.cs">
-      <DependentUpon>HealthITApp.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs">
-      <DependentUpon>HealthITApp.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prog_Dept.cs">
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="University.cs">
-      <DependentUpon>HealthITApp.tt</DependentUpon>
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -243,24 +259,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="HealthITApp.Context.tt">
+    <Content Include="HealthITUnivDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HealthITApp.edmx</DependentUpon>
-      <LastGenOutput>HealthITApp.Context.cs</LastGenOutput>
+      <DependentUpon>HealthITUnivDB.edmx</DependentUpon>
+      <LastGenOutput>HealthITUnivDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="HealthITApp.tt">
+    <Content Include="HealthITUnivDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HealthITApp.edmx</DependentUpon>
-      <LastGenOutput>HealthITApp.cs</LastGenOutput>
+      <DependentUpon>HealthITUnivDB.edmx</DependentUpon>
+      <LastGenOutput>HealthITUnivDB.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="HealthITApp.edmx">
+    <EntityDeploy Include="HealthITUnivDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HealthITApp.Designer.cs</LastGenOutput>
+      <LastGenOutput>HealthITUnivDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="HealthITApp.edmx.diagram">
-      <DependentUpon>HealthITApp.edmx</DependentUpon>
+    <Content Include="HealthITUnivDB.edmx.diagram">
+      <DependentUpon>HealthITUnivDB.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\HealthIT.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -341,6 +357,7 @@
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Shared\AdminHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

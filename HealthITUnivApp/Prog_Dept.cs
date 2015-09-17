@@ -12,7 +12,7 @@ namespace HealthITUnivApp
     using System;
     using System.Collections.Generic;
     
-    public partial class Course
+    public partial class Prog_Dept
     {
        
     }

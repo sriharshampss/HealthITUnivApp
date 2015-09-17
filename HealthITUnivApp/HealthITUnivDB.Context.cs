@@ -13,10 +13,10 @@ namespace HealthITUnivApp
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HISYS001Entities : DbContext
+    public partial class HISYS001Entities11 : DbContext
     {
-        public HISYS001Entities()
-            : base("name=HISYS001Entities")
+        public HISYS001Entities11()
+            : base("name=HISYS001Entities11")
         {
         }
     
@@ -28,9 +28,11 @@ namespace HealthITUnivApp
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<College> Colleges { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Course_Structure> Course_Structure { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<EducationSystem> EducationSystems { get; set; }
         public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<Prog_Dept> Prog_Dept { get; set; }
         public virtual DbSet<Program> Programs { get; set; }
         public virtual DbSet<University> Universities { get; set; }
     }

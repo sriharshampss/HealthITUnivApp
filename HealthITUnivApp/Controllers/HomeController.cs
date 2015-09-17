@@ -24,8 +24,7 @@ namespace HealthITUnivApp.Controllers
             ViewBag.Message = "Your contact page.";
             return View();
         }
-
-        [Authorize]
+        
         public ActionResult Admin()
         {
             ViewBag.Message = "Admin page.";

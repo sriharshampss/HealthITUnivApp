@@ -11,8 +11,8 @@ using HealthITUnivApp;
 namespace HealthITUnivApp.Controllers
 {
     public class CollegesController : Controller
-    {
-        private HISYS001Entities db = new HISYS001Entities();
+    {         
+        private HISYS001Entities11 db = new HISYS001Entities11();
 
         // GET: Colleges
         public ActionResult Index()
