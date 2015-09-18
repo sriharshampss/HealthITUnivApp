@@ -12,7 +12,7 @@ namespace HealthITUnivApp
     using System;
     using System.Collections.Generic;
     
-    public partial class Program
+    public partial class Role
     {
        
     }

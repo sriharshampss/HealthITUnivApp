@@ -8,7 +8,7 @@ namespace HealthITUnivApp
 {
 	public partial class College
 	{
-		public int CollegeID { get; set; }
+		public int CollegeId { get; set; }
 
 		[Required(ErrorMessage = "Please enter College Name")]
 		public string CollegeName { get; set; }

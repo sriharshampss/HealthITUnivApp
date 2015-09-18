@@ -12,7 +12,8 @@ namespace HealthITUnivApp.Controllers
 {
     public class CollegesController : Controller
     {         
-        private HISYS001Entities11 db = new HISYS001Entities11();
+        
+        private HISYS001Entities db = new HISYS001Entities();
 
         // GET: Colleges
         public ActionResult Index()
@@ -58,7 +59,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CollegeID,CollegeName,CollegeAbbrevation,CollegeURL,CollegeStreet,CollegeCity,CollegeState,CollegeCountry,CollegeZipCode,CollegePhoneNo,CollegeHead,UniversityName")] College college)
+        public ActionResult Create([Bind(Include = "CollegeId,CollegeName,CollegeAbbrevation,CollegeURL,CollegeStreet,CollegeCity,CollegeState,CollegeCountry,CollegeZipCode,CollegePhoneNo,CollegeHead,UniversityName")] College college)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +115,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CollegeID,CollegeName,CollegeAbbrevation,CollegeURL,CollegeStreet,CollegeCity,CollegeState,CollegeCountry,CollegeZipCode,CollegePhoneNo,CollegeHead,UniversityName")] College college)
+        public ActionResult Edit([Bind(Include = "CollegeId,CollegeName,CollegeAbbrevation,CollegeURL,CollegeStreet,CollegeCity,CollegeState,CollegeCountry,CollegeZipCode,CollegePhoneNo,CollegeHead,UniversityName")] College college)
         {
             if (ModelState.IsValid)
             {

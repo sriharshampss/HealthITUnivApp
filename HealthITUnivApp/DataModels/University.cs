@@ -9,9 +9,10 @@ namespace HealthITUnivApp
 {
 	public partial class University
 	{
-		public int UniversityID { get; set; }
 
-		[Required(ErrorMessage = "Please enter UniversityName")]
+        public int UniversityId { get; set; }
+
+        [Required(ErrorMessage = "Please enter UniversityName")]
 		public string UniversityName { get; set; }
 
 		[Required(ErrorMessage = "Please enter University Abbreviation")]

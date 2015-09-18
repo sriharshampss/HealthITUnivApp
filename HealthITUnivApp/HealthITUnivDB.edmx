@@ -4,22 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HISYS001Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HealthITUnivDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
-            <PropertyRef Name="City" />
-            <PropertyRef Name="State" />
-            <PropertyRef Name="Country" />
+            <PropertyRef Name="AddressId" />
           </Key>
-          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="State" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="College">
           <Key>
-            <PropertyRef Name="CollegeName" />
+            <PropertyRef Name="CollegeId" />
           </Key>
-          <Property Name="CollegeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CollegeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CollegeName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="CollegeAbbrevation" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="CollegeURL" Type="nvarchar(max)" />
@@ -30,24 +29,24 @@
           <Property Name="CollegeZipCode" Type="varchar" MaxLength="30" />
           <Property Name="CollegePhoneNo" Type="nvarchar" MaxLength="30" />
           <Property Name="CollegeHead" Type="nvarchar" MaxLength="100" />
-          <Property Name="UniversityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UniversityName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
-            <PropertyRef Name="CourseNumber" />
+            <PropertyRef Name="CourseId" />
           </Key>
-          <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourseNumber" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="URL" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Course_Structure">
           <Key>
-            <PropertyRef Name="CourseName" />
-            <PropertyRef Name="CourseType" />
+            <PropertyRef Name="CourseId" />
             <PropertyRef Name="ProgramName" />
             <PropertyRef Name="DepartmentName" />
           </Key>
+          <Property Name="CourseId" Type="int" Nullable="false" />
           <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="CourseType" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ProgramName" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -56,9 +55,9 @@
         </EntityType>
         <EntityType Name="Department">
           <Key>
-            <PropertyRef Name="DepartmentName" />
+            <PropertyRef Name="DepartmentId" />
           </Key>
-          <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="DepartmentAbbreviation" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="DepartmentURL" Type="nvarchar(max)" />
@@ -73,9 +72,9 @@
         </EntityType>
         <EntityType Name="EducationSystem">
           <Key>
-            <PropertyRef Name="SystemName" />
+            <PropertyRef Name="SystemId" />
           </Key>
-          <Property Name="SystemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SystemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SystemName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="SystemAbbreviation" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="SystemURL" Type="nvarchar(max)" />
@@ -89,9 +88,9 @@
         </EntityType>
         <EntityType Name="Person">
           <Key>
-            <PropertyRef Name="PersonID" />
+            <PropertyRef Name="PersonId" />
           </Key>
-          <Property Name="PersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PersonName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="PersonTitle" Type="varchar" MaxLength="30" />
           <Property Name="PersonRole" Type="varchar" MaxLength="30" />
@@ -103,9 +102,9 @@
           <Property Name="PersonState" Type="varchar" MaxLength="50" />
           <Property Name="PersonCountry" Type="varchar" MaxLength="50" />
           <Property Name="PersonZipCode" Type="varchar" MaxLength="30" />
-          <Property Name="UniversityName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="CollegeName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UniversityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CollegeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Prog_Dept">
           <Key>
@@ -125,20 +124,27 @@
         </EntityType>
         <EntityType Name="Program">
           <Key>
-            <PropertyRef Name="ProgramName" />
+            <PropertyRef Name="ProgramId" />
           </Key>
-          <Property Name="ProgramID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProgramName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ProgramAbbrevation" Type="varchar" MaxLength="25" />
           <Property Name="ProgramURL" Type="nvarchar(max)" />
           <Property Name="ProgramLeadDepartment" Type="nvarchar" MaxLength="100" />
           <Property Name="ProgramHead" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleName" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="University">
           <Key>
-            <PropertyRef Name="UniversityName" />
+            <PropertyRef Name="UniversityId" />
           </Key>
-          <Property Name="UniversityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UniversityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UniversityName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="UniversityAbbreviation" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="UniversityURL" Type="nvarchar(max)" />
@@ -151,7 +157,23 @@
           <Property Name="UniversityHead" Type="nvarchar" MaxLength="100" />
           <Property Name="SystemName" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <EntityContainer Name="HISYS001ModelStoreContainer">
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_Role">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HealthITUnivDBModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="College" EntityType="Self.College" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
@@ -161,28 +183,30 @@
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Prog_Dept" EntityType="Self.Prog_Dept" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HISYS001Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HealthITUnivDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Address">
           <Key>
-            <PropertyRef Name="City" />
-            <PropertyRef Name="State" />
-            <PropertyRef Name="Country" />
+            <PropertyRef Name="AddressId" />
           </Key>
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="College">
           <Key>
-            <PropertyRef Name="CollegeName" />
+            <PropertyRef Name="CollegeId" />
           </Key>
-          <Property Name="CollegeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CollegeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CollegeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CollegeAbbrevation" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CollegeURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -193,24 +217,24 @@
           <Property Name="CollegeZipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="CollegePhoneNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="CollegeHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UniversityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UniversityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
-            <PropertyRef Name="CourseNumber" />
+            <PropertyRef Name="CourseId" />
           </Key>
-          <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CourseNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Course_Structure">
           <Key>
-            <PropertyRef Name="CourseName" />
-            <PropertyRef Name="CourseType" />
+            <PropertyRef Name="CourseId" />
             <PropertyRef Name="ProgramName" />
             <PropertyRef Name="DepartmentName" />
           </Key>
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
           <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CourseType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProgramName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
@@ -219,9 +243,9 @@
         </EntityType>
         <EntityType Name="Department">
           <Key>
-            <PropertyRef Name="DepartmentName" />
+            <PropertyRef Name="DepartmentId" />
           </Key>
-          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DepartmentAbbreviation" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DepartmentURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -236,9 +260,9 @@
         </EntityType>
         <EntityType Name="EducationSystem">
           <Key>
-            <PropertyRef Name="SystemName" />
+            <PropertyRef Name="SystemId" />
           </Key>
-          <Property Name="SystemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SystemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SystemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SystemAbbreviation" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SystemURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -252,9 +276,9 @@
         </EntityType>
         <EntityType Name="Person">
           <Key>
-            <PropertyRef Name="PersonID" />
+            <PropertyRef Name="PersonId" />
           </Key>
-          <Property Name="PersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PersonName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PersonTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="PersonRole" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -266,9 +290,9 @@
           <Property Name="PersonState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PersonCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PersonZipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="UniversityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CollegeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UniversityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CollegeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Prog_Dept">
           <Key>
@@ -288,20 +312,27 @@
         </EntityType>
         <EntityType Name="Program">
           <Key>
-            <PropertyRef Name="ProgramName" />
+            <PropertyRef Name="ProgramId" />
           </Key>
-          <Property Name="ProgramID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProgramName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProgramAbbrevation" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ProgramURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ProgramLeadDepartment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ProgramHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleName" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="University">
           <Key>
-            <PropertyRef Name="UniversityName" />
+            <PropertyRef Name="UniversityId" />
           </Key>
-          <Property Name="UniversityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UniversityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UniversityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UniversityAbbreviation" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UniversityURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -314,7 +345,23 @@
           <Property Name="UniversityHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SystemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="HISYS001Entities11" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_Role">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HISYS001Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Colleges" EntityType="Self.College" />
           <EntitySet Name="Courses" EntityType="Self.Course" />
@@ -324,17 +371,21 @@
           <EntitySet Name="People" EntityType="Self.Person" />
           <EntitySet Name="Prog_Dept" EntityType="Self.Prog_Dept" />
           <EntitySet Name="Programs" EntityType="Self.Program" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="Universities" EntityType="Self.University" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="User_Role" EntityType="Self.User_Role" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HISYS001ModelStoreContainer" CdmEntityContainer="HISYS001Entities11">
+        <EntityContainerMapping StorageEntityContainer="HealthITUnivDBModelStoreContainer" CdmEntityContainer="HISYS001Entities">
           <EntitySetMapping Name="Addresses">
-            <EntityTypeMapping TypeName="HISYS001Model.Address">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.Address">
               <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
@@ -342,9 +393,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Colleges">
-            <EntityTypeMapping TypeName="HISYS001Model.College">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.College">
               <MappingFragment StoreEntitySet="College">
-                <ScalarProperty Name="CollegeID" ColumnName="CollegeID" />
+                <ScalarProperty Name="CollegeId" ColumnName="CollegeId" />
                 <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
                 <ScalarProperty Name="CollegeAbbrevation" ColumnName="CollegeAbbrevation" />
                 <ScalarProperty Name="CollegeURL" ColumnName="CollegeURL" />
@@ -360,9 +411,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Courses">
-            <EntityTypeMapping TypeName="HISYS001Model.Course">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.Course">
               <MappingFragment StoreEntitySet="Course">
-                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
                 <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
                 <ScalarProperty Name="CourseName" ColumnName="CourseName" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
@@ -370,8 +421,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Course_Structure">
-            <EntityTypeMapping TypeName="HISYS001Model.Course_Structure">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.Course_Structure">
               <MappingFragment StoreEntitySet="Course_Structure">
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
                 <ScalarProperty Name="CourseName" ColumnName="CourseName" />
                 <ScalarProperty Name="CourseType" ColumnName="CourseType" />
                 <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
@@ -381,9 +433,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Departments">
-            <EntityTypeMapping TypeName="HISYS001Model.Department">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.Department">
               <MappingFragment StoreEntitySet="Department">
-                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
                 <ScalarProperty Name="DepartmentAbbreviation" ColumnName="DepartmentAbbreviation" />
                 <ScalarProperty Name="DepartmentURL" ColumnName="DepartmentURL" />
@@ -399,9 +451,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EducationSystems">
-            <EntityTypeMapping TypeName="HISYS001Model.EducationSystem">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.EducationSystem">
               <MappingFragment StoreEntitySet="EducationSystem">
-                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="SystemId" ColumnName="SystemId" />
                 <ScalarProperty Name="SystemName" ColumnName="SystemName" />
                 <ScalarProperty Name="SystemAbbreviation" ColumnName="SystemAbbreviation" />
                 <ScalarProperty Name="SystemURL" ColumnName="SystemURL" />
@@ -416,9 +468,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="People">
-            <EntityTypeMapping TypeName="HISYS001Model.Person">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.Person">
               <MappingFragment StoreEntitySet="Person">
-                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
                 <ScalarProperty Name="PersonName" ColumnName="PersonName" />
                 <ScalarProperty Name="PersonTitle" ColumnName="PersonTitle" />
                 <ScalarProperty Name="PersonRole" ColumnName="PersonRole" />
@@ -437,7 +489,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Prog_Dept">
-            <EntityTypeMapping TypeName="HISYS001Model.Prog_Dept">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.Prog_Dept">
               <MappingFragment StoreEntitySet="Prog_Dept">
                 <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
                 <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
@@ -452,9 +504,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Programs">
-            <EntityTypeMapping TypeName="HISYS001Model.Program">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.Program">
               <MappingFragment StoreEntitySet="Program">
-                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
                 <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
                 <ScalarProperty Name="ProgramAbbrevation" ColumnName="ProgramAbbrevation" />
                 <ScalarProperty Name="ProgramURL" ColumnName="ProgramURL" />
@@ -463,10 +515,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Universities">
-            <EntityTypeMapping TypeName="HISYS001Model.University">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.University">
               <MappingFragment StoreEntitySet="University">
-                <ScalarProperty Name="UniversityID" ColumnName="UniversityID" />
+                <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
                 <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
                 <ScalarProperty Name="UniversityAbbreviation" ColumnName="UniversityAbbreviation" />
                 <ScalarProperty Name="UniversityURL" ColumnName="UniversityURL" />
@@ -478,6 +538,23 @@
                 <ScalarProperty Name="UniversityPhoneNo" ColumnName="UniversityPhoneNo" />
                 <ScalarProperty Name="UniversityHead" ColumnName="UniversityHead" />
                 <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Role">
+            <EntityTypeMapping TypeName="HealthITUnivDBModel.User_Role">
+              <MappingFragment StoreEntitySet="User_Role">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -10,9 +10,9 @@ using HealthITUnivApp;
 
 namespace HealthITUnivApp.Controllers
 {
-    public class UniversitiesController : Controller
+    public partial class UniversitiesController : Controller
     {
-        private HISYS001Entities11 db = new HISYS001Entities11();
+        private HISYS001Entities db = new HISYS001Entities();
 
         // GET: Universities
         public ActionResult Index()
@@ -59,7 +59,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UniversityID,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
+        public ActionResult Create([Bind(Include = "UniversityId,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace HealthITUnivApp.Controllers
         }
 
         // GET: Universities/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
@@ -115,7 +115,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UniversityID,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
+        public ActionResult Edit([Bind(Include = "UniversityId,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
         {
             if (ModelState.IsValid)
             {

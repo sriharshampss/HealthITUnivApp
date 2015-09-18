@@ -12,7 +12,7 @@ namespace HealthITUnivApp.Controllers
 {
     public class EducationSystemsController : Controller
     {
-        private HISYS001Entities11 db = new HISYS001Entities11();
+        private HISYS001Entities db = new HISYS001Entities();
 
         // GET: EducationSystems
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SystemID,SystemName,SystemAbbreviation,SystemURL,SystemStreet,SystemCity,SystemState,SystemCountry,SystemZipCode,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
+        public ActionResult Create([Bind(Include = "SystemId,SystemName,SystemAbbreviation,SystemURL,SystemStreet,SystemCity,SystemState,SystemCountry,SystemZipCode,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SystemID,SystemName,SystemAbbreviation,SystemURL,SystemStreet,SystemCity,SystemState,SystemCountry,SystemZipCode,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
+        public ActionResult Edit([Bind(Include = "SystemId,SystemName,SystemAbbreviation,SystemURL,SystemStreet,SystemCity,SystemState,SystemCountry,SystemZipCode,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
         {
             if (ModelState.IsValid)
             {

@@ -9,7 +9,7 @@ namespace HealthITUnivApp
 {
     public partial class EducationSystem
     {
-        public int SystemID { get; set; }
+        public int SystemId { get; set; }
 
         [Required(ErrorMessage = "Please enter Education System Name")]
         public string SystemName { get; set; }

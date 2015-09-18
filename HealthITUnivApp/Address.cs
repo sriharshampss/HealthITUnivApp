@@ -14,6 +14,5 @@ namespace HealthITUnivApp
     
     public partial class Address
     {
-      
     }
 }

@@ -12,7 +12,7 @@ namespace HealthITUnivApp.Controllers
 {
     public class ProgramsController : Controller
     {
-        private HISYS001Entities11 db = new HISYS001Entities11();
+        private HISYS001Entities db = new HISYS001Entities();
 
         // GET: Programs
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProgramID,ProgramName,ProgramType,ProgramAbbrevation,ProgramURL,DepartmentName,ProgramLeadDepartment,ProgramHead,Accredited,Accredited_Type,Accredited_StartDate,Accredited_EndDate")] Program program)
+        public ActionResult Create([Bind(Include = "ProgramId,ProgramName,ProgramType,ProgramAbbrevation,ProgramURL,DepartmentName,ProgramLeadDepartment,ProgramHead,Accredited,Accredited_Type,Accredited_StartDate,Accredited_EndDate")] Program program)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProgramID,ProgramName,ProgramType,ProgramAbbrevation,ProgramURL,DepartmentName,ProgramLeadDepartment,ProgramHead,Accredited,Accredited_Type,Accredited_StartDate,Accredited_EndDate")] Program program)
+        public ActionResult Edit([Bind(Include = "ProgramId,ProgramName,ProgramType,ProgramAbbrevation,ProgramURL,DepartmentName,ProgramLeadDepartment,ProgramHead,Accredited,Accredited_Type,Accredited_StartDate,Accredited_EndDate")] Program program)
         {
             if (ModelState.IsValid)
             {

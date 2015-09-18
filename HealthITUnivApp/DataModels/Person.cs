@@ -7,8 +7,8 @@ namespace HealthITUnivApp
 {
 	public partial class Person
 	{
-		public int PersonID { get; set; }
-		public string PersonName { get; set; }
+        public int PersonId { get; set; }
+        public string PersonName { get; set; }
 		public string PersonTitle { get; set; }
 		public string PersonRole { get; set; }
 		public string PersonType { get; set; }

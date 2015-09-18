@@ -12,7 +12,7 @@ namespace HealthITUnivApp.Controllers
 {
     public class DepartmentsController : Controller
     {
-        private HISYS001Entities11 db = new HISYS001Entities11();
+        private HISYS001Entities db = new HISYS001Entities();
 
         // GET: Departments
         public ActionResult Index()
@@ -56,7 +56,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DepartmentID,DepartmentName,DepartmentAbbreviation,DepartmentURL,DepartmentStreet,DepartmentCity,DepartmentState,DepartmentCountry,DepartmentZipCode,DepartmentPhoneNo,DepartmentHead,CollegeName")] Department department)
+        public ActionResult Create([Bind(Include = "DepartmentId,DepartmentName,DepartmentAbbreviation,DepartmentURL,DepartmentStreet,DepartmentCity,DepartmentState,DepartmentCountry,DepartmentZipCode,DepartmentPhoneNo,DepartmentHead,CollegeName")] Department department)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DepartmentID,DepartmentName,DepartmentAbbreviation,DepartmentURL,DepartmentStreet,DepartmentCity,DepartmentState,DepartmentCountry,DepartmentZipCode,DepartmentPhoneNo,DepartmentHead,CollegeName")] Department department)
+        public ActionResult Edit([Bind(Include = "DepartmentId,DepartmentName,DepartmentAbbreviation,DepartmentURL,DepartmentStreet,DepartmentCity,DepartmentState,DepartmentCountry,DepartmentZipCode,DepartmentPhoneNo,DepartmentHead,CollegeName")] Department department)
         {
             if (ModelState.IsValid)
             {

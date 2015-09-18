@@ -7,8 +7,8 @@ namespace HealthITUnivApp
 {
 	public partial class Program
 	{
-		public int ProgramID { get; set; }
-		public string ProgramName { get; set; }
+        public int ProgramId { get; set; }
+        public string ProgramName { get; set; }
 		public string ProgramType { get; set; }
 		public string ProgramAbbrevation { get; set; }
 		public string ProgramURL { get; set; }

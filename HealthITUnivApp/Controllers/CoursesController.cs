@@ -12,7 +12,7 @@ namespace HealthITUnivApp.Controllers
 {
     public class CoursesController : Controller
     {
-        private HISYS001Entities11 db = new HISYS001Entities11();
+        private HISYS001Entities db = new HISYS001Entities();
 
         // GET: Courses
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CourseID,CourseNumber,CourseName,CourseType,ProgramName,DepartmentName,URL")] Course course)
+        public ActionResult Create([Bind(Include = "CourseId,CourseNumber,CourseName,CourseType,ProgramName,DepartmentName,URL")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseID,CourseNumber,CourseName,CourseType,ProgramName,DepartmentName,URL")] Course course)
+        public ActionResult Edit([Bind(Include = "CourseId,CourseNumber,CourseName,CourseType,ProgramName,DepartmentName,URL")] Course course)
         {
             if (ModelState.IsValid)
             {
