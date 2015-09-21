@@ -50,6 +50,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Accredited_EndDate)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CollegeName)
+            </th>
             <th></th>
         </tr>
     
@@ -87,6 +90,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Accredited_EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollegeName)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.ProgramId }) |

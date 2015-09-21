@@ -15,12 +15,14 @@ namespace HealthITUnivApp.Controllers
         private HISYS001Entities db = new HISYS001Entities();
 
         // GET: Universities
+        
         public ActionResult Index()
         {
             return View(db.Universities.ToList());
         }
 
         // GET: Universities/Details/5
+        
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +38,7 @@ namespace HealthITUnivApp.Controllers
         }
 
         // GET: Universities/Create
+        
         public ActionResult Create()
         {
             List<EducationSystem> systems = db.EducationSystems.ToList<EducationSystem>();            
@@ -59,14 +62,9 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public ActionResult Create([Bind(Include = "UniversityId,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
         {
-            if (ModelState.IsValid)
-            {
-                db.Universities.Add(university);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
             List<EducationSystem> systems = db.EducationSystems.ToList<EducationSystem>();
             List<SelectListItem> listItems = new List<SelectListItem>();
 
@@ -80,13 +78,33 @@ namespace HealthITUnivApp.Controllers
                 // ViewBag.Systems = systemNames;
             }
 
+            if (ModelState.IsValid)
+            {
+                var count = db.Universities.Select(a => a.UniversityName.ToLower().Equals(university.UniversityName.ToLower())).Count();
+
+                if (count == 0)
+                {
+                    db.Universities.Add(university);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("UniversityName", "University Name already exists in DB.");
+                    return View(university);
+                }
+              
+            }
+           
+
             return View(university);
         }
 
+        
         // GET: Universities/Edit/5
         public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -114,15 +132,10 @@ namespace HealthITUnivApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "UniversityId,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(university).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
             List<EducationSystem> systems = db.EducationSystems.ToList<EducationSystem>();
             List<SelectListItem> listItems = new List<SelectListItem>();
 
@@ -135,9 +148,28 @@ namespace HealthITUnivApp.Controllers
                 ViewData["Systems"] = listItems;
                 // ViewBag.Systems = systemNames;
             }
+            if (ModelState.IsValid)
+            {
+                var count = db.Universities.Select(a => a.UniversityName.ToLower().Equals(university.UniversityName.ToLower())).Count();
+
+                if (count == 0)
+                {
+                    db.Entry(university).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("UniversityName", "University Name already exists in DB.");
+                    return View(university);
+                }
+
+            }
+           
             return View(university);
         }
 
+        
         // GET: Universities/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -153,6 +185,7 @@ namespace HealthITUnivApp.Controllers
             return View(university);
         }
 
+        
         // POST: Universities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -164,6 +197,7 @@ namespace HealthITUnivApp.Controllers
             return RedirectToAction("Index");
         }
 
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

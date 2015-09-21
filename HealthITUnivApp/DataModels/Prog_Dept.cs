@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthITUnivApp.DataModels
+namespace HealthITUnivApp
 {
     public partial class Prog_Dept
     {

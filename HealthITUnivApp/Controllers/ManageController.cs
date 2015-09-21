@@ -10,7 +10,7 @@ using HealthITUnivApp.Models;
 
 namespace HealthITUnivApp.Controllers
 {
-    [Authorize]
+    
     public class ManageController : Controller
     {
         private ApplicationSignInMnager _signInManager;

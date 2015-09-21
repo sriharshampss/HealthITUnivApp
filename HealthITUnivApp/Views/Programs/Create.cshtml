@@ -4,14 +4,8 @@
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";;
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
+<div ng-controller="ProgramController">
     @using (Html.BeginForm()) 
     {
         @Html.AntiForgeryToken()
@@ -21,13 +15,48 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
+                <label class="control-label col-md-2">University Name</label>
+                <div class="col-md-10">
+                    <select data-ng-model="university" class="btn btn-default dropdown-toggle"
+                            data-ng-options="c.Text as c.Text for c in Universities" data-ng-change="updateCollege()">
+                        <option value="">--Select University--</option>
+                    </select>                   
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">College Name</label>
+                <div class="col-md-10">
+                    <select name="CollegeName" data-ng-model="college" class="btn btn-default dropdown-toggle"
+                            data-ng-options="c.CollegeName as c.CollegeName for c in Colleges" data-ng-change="updateDepartment()">
+                        <option value="">--Select College--</option>
+                    </select>
+                    @*@Html.EditorFor(model => model.CollegeName, new { htmlAttributes = new { @class = "form-control",data_ng_model="college" } })*@
+                    @Html.ValidationMessageFor(model => model.CollegeName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Department Name</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.ProgramLeadDepartment, Enumerable.Empty<SelectListItem>(), "--Select Department--",
+                                htmlAttributes: new { @class = "btn btn-default dropdown-toggle",data_ng_model="department", data_ng_options = "c.DepartmentName as c.DepartmentName for c in Departments" })
+                    @Html.ValidationMessageFor(model => model.ProgramLeadDepartment, "", new { @class = "text-danger" })
+                </div>
+            </div> 
+            <div class="form-group">
+                @Html.LabelFor(model => model.DepartmentName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DepartmentName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DepartmentName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
                 @Html.LabelFor(model => model.ProgramName, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.ProgramName, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.ProgramName, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.ProgramType, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -51,23 +80,6 @@
                     @Html.ValidationMessageFor(model => model.ProgramURL, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.DepartmentName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DepartmentName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DepartmentName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ProgramLeadDepartment, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ProgramLeadDepartment, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ProgramLeadDepartment, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
             <div class="form-group">
                 @Html.LabelFor(model => model.ProgramHead, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -119,5 +131,33 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-</body>
-</html>
+</div>
+<script type="text/javascript">
+
+            var app = angular.module('MyApp', []);
+            app.controller("ProgramController", function ($scope, $http) {
+
+
+                $http.get("/Programs/getUnivs")
+                .success(function (data, status, headers, config) {
+                    $scope.Universities = data;
+
+                });
+                
+
+                $scope.updateCollege = function () {
+
+                    $http.get('/Programs/getColleges?univName=' + $scope.university).
+                       then(function (data, status, headers, config) {
+                           $scope.Colleges = data.data;
+                    });
+                };
+                $scope.updateDepartment = function () {
+
+                    $http.get('/Programs/getDepartments?collegeName=' + $scope.college).
+                       then(function (data, status, headers, config) {
+                           $scope.Departments = data.data;
+                       });
+                };
+            });
+</script>

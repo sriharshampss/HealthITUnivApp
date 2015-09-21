@@ -14,12 +14,14 @@ namespace HealthITUnivApp.Controllers
     {
         private HISYS001Entities db = new HISYS001Entities();
 
+        
         // GET: EducationSystems
         public ActionResult Index()
         {
             return View(db.EducationSystems.ToList());
         }
 
+        
         // GET: EducationSystems/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,6 +37,7 @@ namespace HealthITUnivApp.Controllers
             return View(educationSystem);
         }
 
+        
         // GET: EducationSystems/Create
         public ActionResult Create()
         {
@@ -45,6 +48,7 @@ namespace HealthITUnivApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SystemId,SystemName,SystemAbbreviation,SystemURL,SystemStreet,SystemCity,SystemState,SystemCountry,SystemZipCode,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
         {
@@ -67,6 +71,7 @@ namespace HealthITUnivApp.Controllers
             return View(educationSystem);
         }
 
+        
         // GET: EducationSystems/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -82,6 +87,7 @@ namespace HealthITUnivApp.Controllers
             return View(educationSystem);
         }
 
+        
         // POST: EducationSystems/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -98,6 +104,7 @@ namespace HealthITUnivApp.Controllers
             return View(educationSystem);
         }
 
+        
         // GET: EducationSystems/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -113,6 +120,7 @@ namespace HealthITUnivApp.Controllers
             return View(educationSystem);
         }
 
+        
         // POST: EducationSystems/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

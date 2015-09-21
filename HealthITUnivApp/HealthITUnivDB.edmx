@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HealthITUnivDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HealthITUnivDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressId" />
@@ -38,7 +38,10 @@
           <Property Name="CourseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourseNumber" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CourseType" Type="varchar" MaxLength="20" />
           <Property Name="URL" Type="nvarchar(max)" />
+          <Property Name="ProgramName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Course_Structure">
           <Key>
@@ -130,8 +133,17 @@
           <Property Name="ProgramName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ProgramAbbrevation" Type="varchar" MaxLength="25" />
           <Property Name="ProgramURL" Type="nvarchar(max)" />
-          <Property Name="ProgramLeadDepartment" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProgramLeadDepartment" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ProgramHead" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProgramType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Program_StartDate" Type="date" />
+          <Property Name="Program_EndDate" Type="date" />
+          <Property Name="Accredited" Type="char" MaxLength="10" />
+          <Property Name="Accredited_Type" Type="varchar" MaxLength="30" />
+          <Property Name="Accredited_StartDate" Type="date" />
+          <Property Name="Accredited_EndDate" Type="date" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CollegeName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -188,8 +200,7 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HealthITUnivDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -227,6 +238,9 @@
           <Property Name="CourseNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CourseType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ProgramName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Course_Structure">
           <Key>
@@ -318,8 +332,17 @@
           <Property Name="ProgramName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProgramAbbrevation" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ProgramURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ProgramLeadDepartment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramLeadDepartment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProgramHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Program_StartDate" Type="DateTime" Precision="0" />
+          <Property Name="Program_EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Accredited" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Accredited_Type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Accredited_StartDate" Type="DateTime" Precision="0" />
+          <Property Name="Accredited_EndDate" Type="DateTime" Precision="0" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CollegeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -413,6 +436,9 @@
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="HealthITUnivDBModel.Course">
               <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+                <ScalarProperty Name="CourseType" ColumnName="CourseType" />
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
                 <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
                 <ScalarProperty Name="CourseName" ColumnName="CourseName" />
@@ -506,6 +532,15 @@
           <EntitySetMapping Name="Programs">
             <EntityTypeMapping TypeName="HealthITUnivDBModel.Program">
               <MappingFragment StoreEntitySet="Program">
+                <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Accredited_EndDate" ColumnName="Accredited_EndDate" />
+                <ScalarProperty Name="Accredited_StartDate" ColumnName="Accredited_StartDate" />
+                <ScalarProperty Name="Accredited_Type" ColumnName="Accredited_Type" />
+                <ScalarProperty Name="Accredited" ColumnName="Accredited" />
+                <ScalarProperty Name="Program_EndDate" ColumnName="Program_EndDate" />
+                <ScalarProperty Name="Program_StartDate" ColumnName="Program_StartDate" />
+                <ScalarProperty Name="ProgramType" ColumnName="ProgramType" />
                 <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
                 <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
                 <ScalarProperty Name="ProgramAbbrevation" ColumnName="ProgramAbbrevation" />

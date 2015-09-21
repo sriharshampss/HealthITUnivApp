@@ -23,6 +23,8 @@ namespace HealthITUnivApp
 		public string CollegeZipCode { get; set; }
 		public string CollegePhoneNo { get; set; }
 		public string CollegeHead { get; set; }
-		public string UniversityName { get; set; }
+
+        [Required(ErrorMessage = "Please enter University Name")]
+        public string UniversityName { get; set; }
 	}
 }
