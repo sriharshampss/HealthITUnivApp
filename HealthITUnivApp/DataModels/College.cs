@@ -19,8 +19,8 @@ namespace HealthITUnivApp
 		public string CollegeStreet { get; set; }
 		public string CollegeCity { get; set; }
 		public string CollegeState { get; set; }
-		public string CollegeCountry { get; set; }
-		public string CollegeZipCode { get; set; }
+        public string CollegeCounty { get; set; }
+        public string CollegeZipCode { get; set; }
 		public string CollegePhoneNo { get; set; }
 		public string CollegeHead { get; set; }
 

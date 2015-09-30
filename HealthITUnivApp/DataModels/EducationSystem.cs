@@ -20,7 +20,7 @@ namespace HealthITUnivApp
         public string SystemStreet { get; set; }
         public string SystemCity { get; set; }
         public string SystemState { get; set; }
-        public string SystemCountry { get; set; }
+        public string SystemCounty { get; set; }
         public string SystemZipCode { get; set; }
         public string SystemPhoneNo { get; set; }
         public string SystemHeadPerson { get; set; }

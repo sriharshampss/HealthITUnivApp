@@ -9,15 +9,15 @@
         <EntityTypeShape EntityType="HealthITUnivDBModel.College" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthITUnivDBModel.Course" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthITUnivDBModel.Course_Structure" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HealthITUnivDBModel.Department" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthITUnivDBModel.Department" Width="2.125" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthITUnivDBModel.EducationSystem" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HealthITUnivDBModel.Person" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthITUnivDBModel.Person" Width="1.5" PointX="3.75" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthITUnivDBModel.Prog_Dept" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HealthITUnivDBModel.Program" Width="2.375" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthITUnivDBModel.Program" Width="2.375" PointX="8.375" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthITUnivDBModel.Role" Width="1.5" PointX="8.625" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HealthITUnivDBModel.University" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthITUnivDBModel.University" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthITUnivDBModel.User" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HealthITUnivDBModel.User_Role" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthITUnivDBModel.User_Role" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

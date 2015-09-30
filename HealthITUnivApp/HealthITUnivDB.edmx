@@ -25,7 +25,7 @@
           <Property Name="CollegeStreet" Type="varchar" MaxLength="150" />
           <Property Name="CollegeCity" Type="varchar" MaxLength="50" />
           <Property Name="CollegeState" Type="varchar" MaxLength="50" />
-          <Property Name="CollegeCountry" Type="varchar" MaxLength="50" />
+          <Property Name="CollegeCounty" Type="varchar" MaxLength="50" />
           <Property Name="CollegeZipCode" Type="varchar" MaxLength="30" />
           <Property Name="CollegePhoneNo" Type="nvarchar" MaxLength="30" />
           <Property Name="CollegeHead" Type="nvarchar" MaxLength="100" />
@@ -42,6 +42,7 @@
           <Property Name="URL" Type="nvarchar(max)" />
           <Property Name="ProgramName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CourseDescription" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Course_Structure">
           <Key>
@@ -67,7 +68,7 @@
           <Property Name="DepartmentStreet" Type="varchar" MaxLength="150" />
           <Property Name="DepartmentCity" Type="varchar" MaxLength="50" />
           <Property Name="DepartmentState" Type="varchar" MaxLength="50" />
-          <Property Name="DepartmentCountry" Type="varchar" MaxLength="50" />
+          <Property Name="DepartmentCounty" Type="varchar" MaxLength="50" />
           <Property Name="DepartmentZipCode" Type="varchar" MaxLength="30" />
           <Property Name="DepartmentPhoneNo" Type="nvarchar" MaxLength="30" />
           <Property Name="DepartmentHead" Type="nvarchar" MaxLength="100" />
@@ -84,7 +85,7 @@
           <Property Name="SystemStreet" Type="varchar" MaxLength="150" />
           <Property Name="SystemCity" Type="varchar" MaxLength="50" />
           <Property Name="SystemState" Type="varchar" MaxLength="50" />
-          <Property Name="SystemCountry" Type="varchar" MaxLength="50" />
+          <Property Name="SystemCounty" Type="varchar" MaxLength="50" />
           <Property Name="SystemZipCode" Type="varchar" MaxLength="30" />
           <Property Name="SystemPhoneNo" Type="nvarchar" MaxLength="30" />
           <Property Name="SystemHeadPerson" Type="nvarchar" MaxLength="100" />
@@ -163,7 +164,7 @@
           <Property Name="UniversityStreet" Type="varchar" MaxLength="150" />
           <Property Name="UniversityCity" Type="varchar" MaxLength="50" />
           <Property Name="UniversityState" Type="varchar" MaxLength="50" />
-          <Property Name="UniversityCountry" Type="varchar" MaxLength="50" />
+          <Property Name="UniversityCounty" Type="varchar" MaxLength="50" />
           <Property Name="UniversityZipCode" Type="varchar" MaxLength="30" />
           <Property Name="UniversityPhoneNo" Type="nvarchar" MaxLength="30" />
           <Property Name="UniversityHead" Type="nvarchar" MaxLength="100" />
@@ -224,11 +225,11 @@
           <Property Name="CollegeStreet" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="CollegeCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CollegeState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CollegeCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CollegeZipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="CollegePhoneNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="CollegeHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UniversityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CollegeCounty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -241,6 +242,7 @@
           <Property Name="CourseType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ProgramName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CourseDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Course_Structure">
           <Key>
@@ -266,11 +268,11 @@
           <Property Name="DepartmentStreet" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="DepartmentCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DepartmentState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DepartmentCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DepartmentZipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DepartmentPhoneNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="DepartmentHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CollegeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentCounty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="EducationSystem">
           <Key>
@@ -283,10 +285,10 @@
           <Property Name="SystemStreet" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="SystemCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SystemState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SystemCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SystemZipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="SystemPhoneNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="SystemHeadPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SystemCounty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -362,11 +364,11 @@
           <Property Name="UniversityStreet" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="UniversityCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UniversityState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UniversityCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UniversityZipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="UniversityPhoneNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="UniversityHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SystemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UniversityCounty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -418,6 +420,7 @@
           <EntitySetMapping Name="Colleges">
             <EntityTypeMapping TypeName="HealthITUnivDBModel.College">
               <MappingFragment StoreEntitySet="College">
+                <ScalarProperty Name="CollegeCounty" ColumnName="CollegeCounty" />
                 <ScalarProperty Name="CollegeId" ColumnName="CollegeId" />
                 <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
                 <ScalarProperty Name="CollegeAbbrevation" ColumnName="CollegeAbbrevation" />
@@ -425,7 +428,6 @@
                 <ScalarProperty Name="CollegeStreet" ColumnName="CollegeStreet" />
                 <ScalarProperty Name="CollegeCity" ColumnName="CollegeCity" />
                 <ScalarProperty Name="CollegeState" ColumnName="CollegeState" />
-                <ScalarProperty Name="CollegeCountry" ColumnName="CollegeCountry" />
                 <ScalarProperty Name="CollegeZipCode" ColumnName="CollegeZipCode" />
                 <ScalarProperty Name="CollegePhoneNo" ColumnName="CollegePhoneNo" />
                 <ScalarProperty Name="CollegeHead" ColumnName="CollegeHead" />
@@ -436,6 +438,7 @@
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="HealthITUnivDBModel.Course">
               <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="CourseDescription" ColumnName="CourseDescription" />
                 <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
                 <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
                 <ScalarProperty Name="CourseType" ColumnName="CourseType" />
@@ -461,6 +464,7 @@
           <EntitySetMapping Name="Departments">
             <EntityTypeMapping TypeName="HealthITUnivDBModel.Department">
               <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="DepartmentCounty" ColumnName="DepartmentCounty" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
                 <ScalarProperty Name="DepartmentAbbreviation" ColumnName="DepartmentAbbreviation" />
@@ -468,7 +472,6 @@
                 <ScalarProperty Name="DepartmentStreet" ColumnName="DepartmentStreet" />
                 <ScalarProperty Name="DepartmentCity" ColumnName="DepartmentCity" />
                 <ScalarProperty Name="DepartmentState" ColumnName="DepartmentState" />
-                <ScalarProperty Name="DepartmentCountry" ColumnName="DepartmentCountry" />
                 <ScalarProperty Name="DepartmentZipCode" ColumnName="DepartmentZipCode" />
                 <ScalarProperty Name="DepartmentPhoneNo" ColumnName="DepartmentPhoneNo" />
                 <ScalarProperty Name="DepartmentHead" ColumnName="DepartmentHead" />
@@ -479,6 +482,7 @@
           <EntitySetMapping Name="EducationSystems">
             <EntityTypeMapping TypeName="HealthITUnivDBModel.EducationSystem">
               <MappingFragment StoreEntitySet="EducationSystem">
+                <ScalarProperty Name="SystemCounty" ColumnName="SystemCounty" />
                 <ScalarProperty Name="SystemId" ColumnName="SystemId" />
                 <ScalarProperty Name="SystemName" ColumnName="SystemName" />
                 <ScalarProperty Name="SystemAbbreviation" ColumnName="SystemAbbreviation" />
@@ -486,7 +490,6 @@
                 <ScalarProperty Name="SystemStreet" ColumnName="SystemStreet" />
                 <ScalarProperty Name="SystemCity" ColumnName="SystemCity" />
                 <ScalarProperty Name="SystemState" ColumnName="SystemState" />
-                <ScalarProperty Name="SystemCountry" ColumnName="SystemCountry" />
                 <ScalarProperty Name="SystemZipCode" ColumnName="SystemZipCode" />
                 <ScalarProperty Name="SystemPhoneNo" ColumnName="SystemPhoneNo" />
                 <ScalarProperty Name="SystemHeadPerson" ColumnName="SystemHeadPerson" />
@@ -561,6 +564,7 @@
           <EntitySetMapping Name="Universities">
             <EntityTypeMapping TypeName="HealthITUnivDBModel.University">
               <MappingFragment StoreEntitySet="University">
+                <ScalarProperty Name="UniversityCounty" ColumnName="UniversityCounty" />
                 <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
                 <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
                 <ScalarProperty Name="UniversityAbbreviation" ColumnName="UniversityAbbreviation" />
@@ -568,7 +572,6 @@
                 <ScalarProperty Name="UniversityStreet" ColumnName="UniversityStreet" />
                 <ScalarProperty Name="UniversityCity" ColumnName="UniversityCity" />
                 <ScalarProperty Name="UniversityState" ColumnName="UniversityState" />
-                <ScalarProperty Name="UniversityCountry" ColumnName="UniversityCountry" />
                 <ScalarProperty Name="UniversityZipCode" ColumnName="UniversityZipCode" />
                 <ScalarProperty Name="UniversityPhoneNo" ColumnName="UniversityPhoneNo" />
                 <ScalarProperty Name="UniversityHead" ColumnName="UniversityHead" />

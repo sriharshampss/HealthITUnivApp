@@ -88,7 +88,7 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DepartmentId,DepartmentName,DepartmentAbbreviation,DepartmentURL,DepartmentStreet,DepartmentCity,DepartmentState,DepartmentCountry,DepartmentZipCode,DepartmentPhoneNo,DepartmentHead,CollegeName,UniversityName")] Department department)
+        public ActionResult Create(Department department)
         {
             List<College> colgs = db.Colleges.ToList<College>();
             List<SelectListItem> listItems = new List<SelectListItem>();
@@ -179,7 +179,7 @@ namespace HealthITUnivApp.Controllers
         [HttpPost]
         
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DepartmentId,DepartmentName,DepartmentAbbreviation,DepartmentURL,DepartmentStreet,DepartmentCity,DepartmentState,DepartmentCountry,DepartmentZipCode,DepartmentPhoneNo,DepartmentHead,CollegeName")] Department department)
+        public ActionResult Edit(Department department)
         {
             List<College> colgs = db.Colleges.ToList<College>();
             List<SelectListItem> listItems = new List<SelectListItem>();
@@ -197,6 +197,7 @@ namespace HealthITUnivApp.Controllers
                               join d in db.Departments on
                               c.CollegeName equals d.CollegeName
                               where d.DepartmentName.Equals(department.DepartmentName)
+                              & d.DepartmentId != department.DepartmentId
                               select new { CollegeName = c.CollegeName }).ToList().Count();
 
                 if (result == 0)

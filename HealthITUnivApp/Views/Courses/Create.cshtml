@@ -68,10 +68,17 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.CourseType, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.CourseType, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.CourseType, Model.CourseList, "Select a Course", htmlAttributes: new { @class = "btn btn-default dropdown-toggle" })
                     @Html.ValidationMessageFor(model => model.CourseType, "", new { @class = "text-danger" })
                 </div>
-            </div>         
+            </div>     
+            <div class="form-group">
+                @Html.LabelFor(model => model.CourseDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CourseDescription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CourseDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>       
     
             <div class="form-group">
                 @Html.LabelFor(model => model.URL, htmlAttributes: new { @class = "control-label col-md-2" })

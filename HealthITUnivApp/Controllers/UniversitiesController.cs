@@ -63,7 +63,7 @@ namespace HealthITUnivApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         
-        public ActionResult Create([Bind(Include = "UniversityId,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
+        public ActionResult Create(University university)
         {
             List<EducationSystem> systems = db.EducationSystems.ToList<EducationSystem>();
             List<SelectListItem> listItems = new List<SelectListItem>();
@@ -134,7 +134,7 @@ namespace HealthITUnivApp.Controllers
         [HttpPost]
         
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UniversityId,UniversityName,UniversityAbbreviation,UniversityURL,UniversityStreet,UniversityCity,UniversityState,UniversityCountry,UniversityZipCode,UniversityPhoneNo,UniversityHead,SystemName")] University university)
+        public ActionResult Edit(University university)
         {
             List<EducationSystem> systems = db.EducationSystems.ToList<EducationSystem>();
             List<SelectListItem> listItems = new List<SelectListItem>();
@@ -150,7 +150,8 @@ namespace HealthITUnivApp.Controllers
             }
             if (ModelState.IsValid)
             {
-                var count = db.Universities.Select(a => a.UniversityName.ToLower().Equals(university.UniversityName.ToLower())).Count();
+                var count = db.Universities.Where<University>(a => (a.UniversityName.ToLower().Equals(university.UniversityName.ToLower())
+                                                                   & a.UniversityId != university.UniversityId)).Count();
 
                 if (count == 0)
                 {

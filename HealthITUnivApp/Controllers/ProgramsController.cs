@@ -41,7 +41,8 @@ namespace HealthITUnivApp.Controllers
         
         public ActionResult Create()
         {
-            return View();
+           
+            return View(new Program());
         }
 
         [HttpGet]
@@ -119,6 +120,7 @@ namespace HealthITUnivApp.Controllers
                               join p in db.Programs
                               on cs.CollegeName equals p.CollegeName
                               where p.ProgramName == program.ProgramName
+                              & p.ProgramId != program.ProgramId
                               select new { ProgramName = program.ProgramName }).ToList().Count();
 
                 if (result == 0)

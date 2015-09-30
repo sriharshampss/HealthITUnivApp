@@ -3,11 +3,31 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HealthITUnivApp
 {
 	public partial class Program
 	{
+        public Program()
+        {
+            ProgramList = new List<SelectListItem>()
+            {
+               new SelectListItem { Value = "Bachelor", Text = "Bachelor" },
+               new SelectListItem { Value = "Associate", Text = "Associate" },
+               new SelectListItem { Value = "Masters", Text = "Masters" },
+               new SelectListItem { Value = "PhD", Text = "PhD" },
+               new SelectListItem { Value = "Certification", Text = "Certification" },
+               new SelectListItem { Value = "Doctorate", Text = "Doctorate" },
+               new SelectListItem { Value = "CE", Text = "CE" },
+               new SelectListItem { Value = "OTHER", Text = "OTHER" }
+
+            };
+        }
+
+        public List<System.Web.Mvc.SelectListItem> ProgramList { get; set; }       
+        
+
         public int ProgramId { get; set; }
 
         [Required(ErrorMessage = "Please enter Program Name")]

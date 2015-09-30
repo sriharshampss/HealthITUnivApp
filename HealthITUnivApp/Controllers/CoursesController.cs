@@ -89,20 +89,22 @@ namespace HealthITUnivApp.Controllers
             {
                 return null;
             }
-            Course course = db.Courses.Find(CourseId);
+            Course course = db.Courses.Find(CourseId);           
             var result = (from c in db.Colleges
-                          join d in db.Departments
-                          on c.CollegeName equals d.CollegeName
-                          from cs in db.Colleges
                           join p in db.Programs
-                          on cs.CollegeName equals p.CollegeName
-                          from p1 in db.Programs
+                          on c.CollegeName equals p.CollegeName
+                          from ps in db.Programs
                           join crs in db.Courses
-                          on p1.ProgramName equals crs.ProgramName
+                          on ps.ProgramName equals crs.ProgramName
                           where crs.CourseId == CourseId
-                          select new { UniversityName = c.UniversityName, CollegeName = c.CollegeName, ProgramName = p.ProgramName,
-                              ProgramLeadDepartment = p.ProgramLeadDepartment,
-                              CourseName = crs.CourseName}).ToList();
+                          select new
+                          {
+                              UniversityName = c.UniversityName,
+                              CollegeName = c.CollegeName,
+                              ProgramName = ps.ProgramName,
+                              ProgramLeadDepartment = ps.ProgramLeadDepartment,
+                              CourseName = crs.CourseName
+                          }).ToList();
 
 
             return Json(result, JsonRequestBehavior.AllowGet);
@@ -114,7 +116,7 @@ namespace HealthITUnivApp.Controllers
         
         public ActionResult Create()
         {
-            return View();
+            return View(new Course());
         }
 
         // POST: Courses/Create
@@ -168,6 +170,8 @@ namespace HealthITUnivApp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Course course = db.Courses.Find(id);
+            course.DepartmentName = course.DepartmentName.Replace("string:", "").Trim();
+            course.ProgramName = course.ProgramName.Replace("string:", "").Trim();
             if (course == null)
             {
                 return HttpNotFound();
@@ -181,10 +185,12 @@ namespace HealthITUnivApp.Controllers
         [HttpPost]
         
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseId,CourseNumber,CourseName,CourseType,ProgramName,DepartmentName,URL")] Course course)
+        public ActionResult Edit(Course course)
         {
             if (ModelState.IsValid)
             {
+                course.DepartmentName = course.DepartmentName.Replace("string:", "").Trim();
+                course.ProgramName = course.ProgramName.Replace("string:", "").Trim();
                 db.Entry(course).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

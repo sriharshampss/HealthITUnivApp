@@ -50,11 +50,12 @@ namespace HealthITUnivApp.Controllers
         [HttpPost]
         
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SystemId,SystemName,SystemAbbreviation,SystemURL,SystemStreet,SystemCity,SystemState,SystemCountry,SystemZipCode,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
+        public ActionResult Create( EducationSystem educationSystem)
         {
             if (ModelState.IsValid)
             {
-                var count = db.EducationSystems.Select(a => a.SystemName.ToLower().Equals(educationSystem.SystemName.ToLower())).Count();
+                var count = db.EducationSystems.Select(a => a.SystemName.ToLower().Equals(educationSystem.SystemName.ToLower())
+                                                        & a.SystemId != educationSystem.SystemId).Count();
 
                 if(count == 0)
                 {
@@ -93,13 +94,25 @@ namespace HealthITUnivApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SystemId,SystemName,SystemAbbreviation,SystemURL,SystemStreet,SystemCity,SystemState,SystemCountry,SystemZipCode,SystemPhoneNo,SystemHeadPerson")] EducationSystem educationSystem)
+        public ActionResult Edit(EducationSystem educationSystem)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(educationSystem).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var count = db.EducationSystems.Where<EducationSystem>(a => (a.SystemName.ToLower().Equals(educationSystem.SystemName.ToLower())
+                                                             & a.SystemId != educationSystem.SystemId)).Count();
+
+                if(count == 0)
+                {
+                    db.Entry(educationSystem).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("SystemName", "System Name already exists in DB.");
+                    return View(educationSystem);
+                }
+
             }
             return View(educationSystem);
         }
