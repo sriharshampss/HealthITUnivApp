@@ -58,6 +58,18 @@ namespace HealthITUnivApp.Controllers
             return Json(listItems, JsonRequestBehavior.AllowGet);
         }
 
+
+        [HttpGet]
+        public JsonResult getCourses()
+        {
+            List<Course> univs = db.Courses.ToList<Course>();
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            foreach (var x in univs)
+            {
+                listItems.Add(new SelectListItem() { Text = x.CourseNumber+"--"+x.CourseName, Value = x.CourseName });
+            }
+            return Json(listItems, JsonRequestBehavior.AllowGet);
+        }
         [HttpGet]
         
         public JsonResult getColleges(string univName)
@@ -127,6 +139,22 @@ namespace HealthITUnivApp.Controllers
                 {
                     program.ProgramLeadDepartment = program.ProgramLeadDepartment.Replace("string:", "").Trim();
                     program.CollegeName = program.CollegeName.Replace("string:", "").Trim();
+                    string[] coursesData = program.Courses.Split(';');
+                    for(int i =0;i<coursesData.Length;i=i+4)
+                    {
+                        if((i+1)< coursesData.Length && (i+3) < coursesData.Length)
+                        {
+                            ProgramCourse pc = new ProgramCourse()
+                            {
+                                CollegeName = program.CollegeName,
+                                CourseName = coursesData[i + 1],
+                                CourseType = coursesData[i + 3],
+                                ProgramName = program.ProgramName
+                            };
+                            db.ProgramCourses.Add(pc);
+                        }                        
+                    }
+
                     db.Programs.Add(program);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -154,6 +182,15 @@ namespace HealthITUnivApp.Controllers
             {
                 return HttpNotFound();
             }
+            List<ProgramCourse> pcList = db.ProgramCourses.Where<ProgramCourse>(x => x.ProgramName.Equals(program.ProgramName)).ToList<ProgramCourse>();
+            string courseData = "";
+            int i = 0;
+            foreach (ProgramCourse p in pcList)
+            {
+                courseData += "cId" + i.ToString()+ ";" + p.PCId +";"+ "cName" + i.ToString() + ";" + p.CourseName + ";" + "courseType" + i.ToString() + ";" + p.CourseType + ";";
+                i++;
+            }
+            program.Courses = courseData;
             return View(program);
         }
 
@@ -169,7 +206,39 @@ namespace HealthITUnivApp.Controllers
             {
                 program.ProgramLeadDepartment = program.ProgramLeadDepartment.Replace("string:", "").Trim();
                 program.CollegeName = program.CollegeName.Replace("string:", "").Trim();
-                db.Entry(program).State = EntityState.Modified;
+                string[] coursesData = program.Courses.Split(';');
+                
+                for (int i = 0; i < coursesData.Length; i = i + 6)
+                {
+                    if ((i + 3) < coursesData.Length && (i + 5) < coursesData.Length)
+                    {
+                        int cId;
+                        var isNull = Int32.TryParse(coursesData[i + 1],out cId);
+                        var cName = coursesData[i + 3];
+                        var cType = coursesData[i + 5];
+
+                        if(!isNull)
+                        {
+                            ProgramCourse pc = new ProgramCourse()
+                            {
+                                CollegeName = program.CollegeName,
+                                CourseName = cName,
+                                CourseType = cType,
+                                ProgramName = program.ProgramName
+                            };
+                            db.ProgramCourses.Add(pc);
+
+                        }
+                        else
+                        {
+                            ProgramCourse pCourse = db.ProgramCourses.Where<ProgramCourse>(x => x.PCId.Equals(cId)).FirstOrDefault<ProgramCourse>();
+                            pCourse.CourseName = cName;
+                            pCourse.CourseType = cType;
+                        }            
+                                             
+                    }
+                }
+                db.Entry(program).State = EntityState.Modified;                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

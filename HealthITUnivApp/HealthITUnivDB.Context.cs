@@ -38,5 +38,6 @@ namespace HealthITUnivApp
         public virtual DbSet<University> Universities { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<User_Role> User_Role { get; set; }
+        public virtual DbSet<ProgramCourse> ProgramCourses { get; set; }
     }
 }

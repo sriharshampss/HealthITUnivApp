@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">University Name</label>
                 <div class="col-md-10">
-                    <select data-ng-model="university" class="btn btn-default dropdown-toggle"
+                    <select data-ng-model="university" class="btn btn-success dropdown-toggle"
                             data-ng-options="c.Text as c.Text for c in Universities" data-ng-change="updateCollege()">
                         <option value="">--Select University--</option>
                     </select>
@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">College Name</label>
                 <div class="col-md-10">
-                    <select name="CollegeName" data-ng-model="college" class="btn btn-default dropdown-toggle"
+                    <select name="CollegeName" data-ng-model="college" class="btn btn-success dropdown-toggle"
                             data-ng-options="c.CollegeName as c.CollegeName for c in Colleges" data-ng-change="updateDepartment()">
                         <option value="">--Select College--</option>
                     </select>
@@ -39,7 +39,7 @@
                 <label class="control-label col-md-2">Department Name</label>
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.ProgramLeadDepartment, Enumerable.Empty<SelectListItem>(), "--Select Department--",
-                                htmlAttributes: new { @class = "btn btn-default dropdown-toggle", data_ng_model = "department", data_ng_options = "c.DepartmentName as c.DepartmentName for c in Departments" })
+                                htmlAttributes: new { @class = "btn btn-success dropdown-toggle", data_ng_model = "department", data_ng_options = "c.DepartmentName as c.DepartmentName for c in Departments" })
                     @Html.ValidationMessageFor(model => model.ProgramLeadDepartment, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ProgramType, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                  @Html.DropDownListFor(model => model.ProgramType, Model.ProgramList, "Select a Program", htmlAttributes: new { @class = "btn btn-default dropdown-toggle" })
+                  @Html.DropDownListFor(model => model.ProgramType, Model.ProgramList, "Select a Program", htmlAttributes: new { @class = "btn btn-success dropdown-toggle" })
                     @Html.ValidationMessageFor(model => model.ProgramType, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -122,10 +122,25 @@
                     @Html.ValidationMessageFor(model => model.Accredited_EndDate, "", new { @class = "text-danger" })
                 </div>
             </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.Courses, new { htmlAttributes = new { @class = "form-control" } })
+                  
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="addCourse" type="button" class="btn btn-primary">Add course</button>
+            </div>
+
+            <div class="form-group" id="courseList">
+
+
+            </div>
     
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="Save" class="btn btn-success" />
                 </div>
             </div>
         </div>
@@ -136,10 +151,61 @@
     </div>
 </div>
 <script type="text/javascript">
+    var optionsData = "";
+    var courseCount = 0;
+    var optionsHtml = "";
+    var selectedData = "";
+    var coursesData = "";
+    $(document).ready(function () {
+        coursesData = $("#Courses").val();
+       
+        
+        updateCourses = function (id, val) {
+            selectedData = "";
+
+            for (i = 0; i < courseCount; i++) {               
+                    selectedData += "cId" + i.toString() + ";" + $("#cId" + i.toString()).val() + ";";
+                if ($("#cName" + i.toString()).val() != '')
+                    selectedData += "cName" + i.toString() + ";" + $("#cName" + i.toString()).val() + ";";
+                if ($("#courseType" + i.toString()).val() != '')
+                    selectedData += "courseType" + i.toString() + ";" + $("#courseType" + i.toString()).val() + ";";
+            }
+
+            $("#Courses").val(selectedData);
+        };
+
+    });
+
+    $("#addCourse").click(function () {
+        var htmlData = "<div class='form-group'><div class='col-md-10' style='float: left;width: 40%;'><input type='text' id='cId" + courseCount + "' style='display:none'/><label class='control-label' for='cName" + courseCount + "'>Course Name</label><br/><select class='btn btn-default dropdown-toggle' onchange='updateCourses(this.id,this.value)' ng-model='CourseName" + courseCount + "' id='cName" + courseCount + "'><option value=''>--Select Course Name--</option>" + optionsHtml + "</select></div><div class='col-md-10' style='float: right;width: 60%;'><label class='control-label' for='courseType" + courseCount + "'>Course Type</label><br/><select class='btn btn-default dropdown-toggle' onchange='updateCourses(this.id,this.value)' ng-model='CourseType" + courseCount + "' id='courseType" + courseCount + "'><option value=''>--Select Course Type--</option><option value='Core'>Core</option><option value='Elective'>Elective</option><option value='Optional'>Optional</option><option value='Prereq'>Prereq</option><option value='Other'>Other</option></select></div></div>";
+
+        $("#courseList").append(htmlData);
+        courseCount++;
+    });
 
             var app = angular.module('MyApp', []);
             app.controller("ProgramController", function ($scope, $http) {
 
+                $http.get("/Programs/getCourses")
+                .success(function (data, status, headers, config) {
+                    optionsData = data;
+                    angular.forEach(optionsData, function (value, key) {
+                        optionsHtml += "<option value='" + value.Value + "'>" + value.Text + "</option>";
+                    });
+                    if (coursesData != "") {
+                        var arr = coursesData.split(';');
+                        for (i = 0; i < arr.length; i = i + 6) {
+                            if ((i+3) < arr.length && (i + 5) < arr.length) {
+                                var htmlData = "<div class='form-group'><div class='col-md-10' style='float: left;width: 40%;'><input type='text' id='cId" + courseCount + "' style='display:none'/><label class='control-label' for='cName" + courseCount + "'>Course Name</label><br/><select class='btn btn-default dropdown-toggle' onchange='updateCourses(this.id,this.value)' ng-model='CourseName" + courseCount + "' id='cName" + courseCount + "'><option value=''>--Select Course Name--</option>" + optionsHtml + "</select></div><div class='col-md-10' style='float: right;width: 60%;'><label class='control-label' for='courseType" + courseCount + "'>Course Type</label><br/><select class='btn btn-default dropdown-toggle' onchange='updateCourses(this.id,this.value)' ng-model='CourseType" + courseCount + "' id='courseType" + courseCount + "'><option value=''>--Select Course Type--</option><option value='Core'>Core</option><option value='Elective'>Elective</option><option value='Optional'>Optional</option><option value='Prereq'>Prereq</option><option value='Other'>Other</option></select></div></div>";
+                                $("#courseList").append(htmlData);
+                                $("#cId" + courseCount.toString()).val(arr[i + 1]);
+                                $("#cName" + courseCount.toString()).val(arr[i+3]);
+                                $("#courseType" + courseCount.toString()).val(arr[i + 5]);
+                                courseCount++;
+                            }
+                        }
+                    }
+                });
 
                 $http.get("/Programs/getUnivs")
                 .success(function (data, status, headers, config) {

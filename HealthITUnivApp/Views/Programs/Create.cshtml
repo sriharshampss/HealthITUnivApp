@@ -60,7 +60,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ProgramType, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                  @Html.DropDownListFor(model => model.ProgramType, Model.ProgramList, "Select a Program", htmlAttributes: new { @class = "btn btn-default dropdown-toggle" })
+                  @Html.DropDownListFor(model => model.ProgramType, Model.ProgramList, "Select a Program type", htmlAttributes: new { @class = "btn btn-default dropdown-toggle" })
                     @Html.ValidationMessageFor(model => model.ProgramType, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -119,10 +119,25 @@
                     @Html.ValidationMessageFor(model => model.Accredited_EndDate, "", new { @class = "text-danger" })
                 </div>
             </div>
+
+            <div class="form-group">               
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.Courses, new { htmlAttributes = new { @class = "form-control", data_ng_model = "courses" } })                   
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button id="addCourse" type="button" class="btn btn-primary">Add course</button>
+            </div>
+
+            <div class="form-group" id="courseList">
+              
+
+            </div>
     
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Create" class="btn btn-success" />
                 </div>
             </div>
         </div>
@@ -133,16 +148,57 @@
     </div>
 </div>
 <script type="text/javascript">
+    var optionsData="";
+    var courseCount = 0;
+    var optionsHtml = "";
+    var selectedData = "";
+    $("#addCourse").click(function () {
+        var htmlData = "<div class='form-group'><div class='col-md-10' style='float: left;width: 40%;'><label class='control-label' for='cName" + courseCount + "'>Course Name</label><br/><select class='btn btn-default dropdown-toggle' onchange='updateCourses(this.id,this.value)' ng-model='CourseName" + courseCount + "' id='cName" + courseCount + "'><option value=''>--Select Course Name--</option>" + optionsHtml + "</select></div><div class='col-md-10' style='float: right;width: 60%;'><label class='control-label' for='courseType" + courseCount + "'>Course Type</label><br/><select class='btn btn-default dropdown-toggle' onchange='updateCourses(this.id,this.value)' ng-model='CourseType" + courseCount + "' id='courseType" + courseCount + "'><option value=''>--Select Course Type--</option><option value='Core'>Core</option><option value='Elective'>Elective</option><option value='Optional'>Optional</option><option value='Prereq'>Prereq</option><option value='Other'>Other</option></select></div></div>";
 
-            var app = angular.module('MyApp', []);
-            app.controller("ProgramController", function ($scope, $http) {
+        $("#courseList").append(htmlData);
+        courseCount++;
+    });
 
-
-                $http.get("/Programs/getUnivs")
+    $(document).ready(function (){
+        updateCourses = function (id, val) {
+            selectedData = "";
+           
+            for (i = 0; i < courseCount; i++)
+            {               
+                if ($("#cName" + i.toString()).val() !=undefined)
+                    selectedData += "cName" + i.toString() + ";" + $("#cName" + i.toString()).val() + ";";
+                if ($("#courseType" + i.toString()).val() != '')
+                    selectedData += "courseType" + i.toString() + ";" + $("#courseType" + i.toString()).val() + ";";
+            }
+           
+            $("#Courses").val(selectedData);
+        };
+    });
+    
+   
+    var app = angular.module('MyApp', []);
+    app.controller("ProgramController", function ($scope, $http,$window) {
+        $scope.courses = selectedData;
+        $scope.updateCourses = function () {
+            var text = "CourseName";
+            alert(courseCount)
+            for (i = 0; i < courseCount; i++) {
+                $scope.courses += $scope.CourseName + i.toString() + ";" + $scope.CourseType + i.toString();
+            }
+        };
+                    $http.get("/Programs/getUnivs")
                 .success(function (data, status, headers, config) {
                     $scope.Universities = data;
 
                 });
+
+                $http.get("/Programs/getCourses")
+                 .success(function(data, status, headers, config) {
+                     optionsData = data;
+                     angular.forEach(optionsData, function(value, key) {
+                         optionsHtml += "<option value='" + value.Value + "'>" + value.Text + "</option>";
+                     });
+                 });
                 
 
                 $scope.updateCollege = function () {

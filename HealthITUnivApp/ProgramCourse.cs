@@ -12,8 +12,7 @@ namespace HealthITUnivApp
     using System;
     using System.Collections.Generic;
     
-    public partial class Person
+    public partial class ProgramCourse
     {
-   
     }
 }

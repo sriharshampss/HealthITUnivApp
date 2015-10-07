@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">University Name</label>
                 <div class="col-md-10">
-                    <select data-ng-model="university" class="btn btn-default dropdown-toggle"
+                    <select data-ng-model="university" class="btn btn-success dropdown-toggle"
                             data-ng-options="c.Text as c.Text for c in Universities" data-ng-change="updateCollege()">
                         <option value="">--Select University--</option>
                     </select>                    
@@ -29,7 +29,7 @@
                 <label class="control-label col-md-2">College Name</label>
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.CollegeName, ViewData["Colleges"] as IEnumerable<SelectListItem>, "--Select College--",
-                                htmlAttributes: new { @class = "btn btn-default dropdown-toggle", data_ng_model = "college", data_ng_options = "c.CollegeName as c.CollegeName for c in Colleges" })
+                                htmlAttributes: new { @class = "btn btn-success dropdown-toggle", data_ng_model = "college", data_ng_options = "c.CollegeName as c.CollegeName for c in Colleges" })
                     @Html.ValidationMessageFor(model => model.CollegeName, "", new { @class = "text-danger" })
                 </div>
             </div>  
@@ -116,7 +116,7 @@
     
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="Save" class="btn btn-success" />
                 </div>
             </div>
         </div>

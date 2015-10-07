@@ -14,6 +14,6 @@ namespace HealthITUnivApp
     
     public partial class Course_Structure
     {
-       
+     
     }
 }

@@ -1,0 +1,51 @@
+﻿@model HealthITUnivApp.ProgramCourse
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProgramCourse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgramName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProgramName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollegeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PCId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

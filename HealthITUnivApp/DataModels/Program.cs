@@ -52,6 +52,8 @@ namespace HealthITUnivApp
        
         [Required(ErrorMessage ="Please enter college name")]
         public string CollegeName { get; set; }
+        public string Courses { get; set; }
+        public string OldCourses { get; set; }
     }
 
 }

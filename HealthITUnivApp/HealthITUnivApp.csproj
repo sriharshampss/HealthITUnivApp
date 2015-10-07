@@ -192,6 +192,7 @@
     <Compile Include="Controllers\EducationSystemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProgramCoursesController.cs" />
     <Compile Include="Controllers\ProgramsController.cs" />
     <Compile Include="Controllers\UniversitiesController.cs" />
     <Compile Include="Course.cs">
@@ -208,6 +209,7 @@
     <Compile Include="DataModels\EducationSystem.cs" />
     <Compile Include="DataModels\Person.cs" />
     <Compile Include="DataModels\Program.cs" />
+    <Compile Include="DataModels\ProgramCourse.cs" />
     <Compile Include="DataModels\Prog_Dept.cs" />
     <Compile Include="DataModels\Role.cs" />
     <Compile Include="DataModels\University.cs" />
@@ -246,6 +248,9 @@
     <Compile Include="Program.cs">
       <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProgramCourse.cs">
+      <DependentUpon>HealthITUnivDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Prog_Dept.cs">
       <DependentUpon>HealthITUnivDB.tt</DependentUpon>
     </Compile>
@@ -281,8 +286,6 @@
       <DependentUpon>HealthITUnivDB.edmx</DependentUpon>
       <LastGenOutput>HealthITUnivDB.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="HealthITUnivDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HealthITUnivDB.Designer.cs</LastGenOutput>
@@ -292,6 +295,8 @@
     </Content>
     <None Include="Properties\PublishProfiles\HealthIT.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -370,6 +375,11 @@
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Shared\AdminHeader.cshtml" />
+    <Content Include="Views\ProgramCourses\Create.cshtml" />
+    <Content Include="Views\ProgramCourses\Delete.cshtml" />
+    <Content Include="Views\ProgramCourses\Details.cshtml" />
+    <Content Include="Views\ProgramCourses\Edit.cshtml" />
+    <Content Include="Views\ProgramCourses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

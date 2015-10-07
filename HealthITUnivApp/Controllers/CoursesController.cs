@@ -36,6 +36,7 @@ namespace HealthITUnivApp.Controllers
             }
             return View(course);
         }
+        
 
         [HttpGet]
         
@@ -77,9 +78,17 @@ namespace HealthITUnivApp.Controllers
         {
             if (String.IsNullOrEmpty(departmentName))
                 return Json(db.Programs.ToList<Program>(), JsonRequestBehavior.AllowGet);
-
-            List<Program> depts = db.Programs.Where<Program>(x => x.ProgramLeadDepartment.ToLower().Equals(departmentName.ToLower())).ToList<Program>();
-            return Json(depts, JsonRequestBehavior.AllowGet);
+            string[] depts = departmentName.Split(',');
+            List<Program> programs = new List<Program>();
+            foreach (string s in depts)
+            {
+               foreach(Program p in db.Programs.Where<Program>(x => x.ProgramLeadDepartment.ToLower().Equals(s.ToLower())).ToList<Program>())
+                {
+                    programs.Add(p);
+                }
+            }
+          
+            return Json(programs, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
         
@@ -140,8 +149,10 @@ namespace HealthITUnivApp.Controllers
                              from ps in db.Programs
                              join cr in db.Courses
                              on ps.ProgramName equals cr.ProgramName
-                             where cr.CourseNumber == course.CourseNumber
-                              select new { CourseName = course.CourseName}).ToList().Count();
+                             where cr.CourseNumber == course.CourseNumber &
+                                   cr.DepartmentName == course.DepartmentName &
+                                   cr.ProgramName == course.ProgramName
+                              select new { CourseName = course.CourseName }).ToList().Count();
 
                 if (result == 0)
                 {

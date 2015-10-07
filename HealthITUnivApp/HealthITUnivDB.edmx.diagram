@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="HealthITUnivDBModel.University" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthITUnivDBModel.User" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HealthITUnivDBModel.User_Role" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthITUnivDBModel.ProgramCourse" Width="1.5" PointX="0.75" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

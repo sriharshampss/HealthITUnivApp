@@ -32,5 +32,7 @@ namespace HealthITUnivApp
 		public string DepartmentName { get; set; }
 		public string URL { get; set; }
         public string CourseDescription { get; set; }
+
+     
     }
 }
